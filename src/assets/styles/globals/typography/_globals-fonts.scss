@@ -1,0 +1,110 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ *
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+/* Font: Source Sans Pro Light*/
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/SourceSansPro-Light.otf') format('opentype');
+  font-style: normal;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+
+/* Font: Source Sans Pro Regular*/
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/SourceSansPro-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+/* Font: Source Sans Pro Italic*/
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Italic.otf') format('opentype');
+    font-style: italic;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+/* Font: Source Sans Pro Semibold*/
+@font-face {
+  font-family: 'Source Sans Pro SemiBold';
+  src: url('../fonts/SourceSansPro-Semibold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+
+/* Font: Source Sans Pro Bold*/
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url('../fonts/SourceSansPro-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+
+/* Font: Source Sans Pro Bold Italic*/
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-BoldIt.otf') format('opentype');
+    font-style: italic;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+/* Font: DIN-Pro Condensed Bold*/
+@font-face {
+    font-family: 'DIN Condensed';
+    src: url('../fonts/DINPro-CondBold.woff') format('woff');
+    font-style: normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+/* Currently not used, but already included in project
+
+!* Font: DIN-Pro Condensed*!
+@font-face {
+    font-family: 'DIN Condensed';
+    src: url('../fonts/DINPro-Cond.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+!* Font: DIN-Pro Regular*!
+@font-face {
+    font-family: 'DIN';
+    src: url('../fonts/DINPro.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+!* Font: DIN-Pro Condensed Semibold*!
+@font-face {
+    font-family: 'DIN';
+    src: url('../fonts/DINPro-Medium.woff') format('woff');
+    font-style: normal;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+}
+
+!* Font: DIN-Pro Condensed Bold*!
+@font-face {
+    font-family: 'DIN';
+    src: url('../fonts/DINPro-Bold.woff') format('woff');
+    font-style: normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+*/

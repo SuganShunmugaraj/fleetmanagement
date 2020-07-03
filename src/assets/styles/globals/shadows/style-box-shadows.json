@@ -1,0 +1,38 @@
+[
+    {
+        "shadowName": "Shadow M",
+        "shadowCSSClass": "shadow-m"
+    },
+    {
+        "shadowName": "Shadow L",
+        "shadowCSSClass": "shadow-l"
+    },
+    {
+        "shadowName": "Shadow XL",
+        "shadowCSSClass": "shadow-xl"
+    },
+    {
+        "shadowName": "Shadow Xtra R",
+        "shadowCSSClass": "shadow-xtra-r"
+    },
+    {
+        "shadowName": "Shadow Xtra L",
+        "shadowCSSClass": "shadow-xtra-l"
+    },
+    {
+        "shadowName": "Shadow Scroll Bottom",
+        "shadowCSSClass": "shadow-scroll-btm"
+    },
+    {
+        "shadowName": "Shadow Scroll Top",
+        "shadowCSSClass": "shadow-scroll-top"
+    },
+    {
+        "shadowName": "Shadow Scroll Left",
+        "shadowCSSClass": "shadow-scroll-l"
+    },
+    {
+        "shadowName": "Shadow Scroll Right",
+        "shadowCSSClass": "shadow-scroll-r"
+    }
+]

@@ -1,0 +1,60 @@
+@import "../../../../assets/styles/abstracts/variable";
+
+/*DateTIme*/
+
+.workshopDateTimeHolder {
+    position: relative;
+    float: left;
+}
+
+input.dateSelction {
+    margin: 0 0 0 10px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.inputdateselect {
+    margin: 0 0 0 10px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    height: 27px;
+    color: #737373;
+    line-height: 16px;
+    font-size: 13px;
+    width: 166px;
+}
+
+.icon-clock {
+    font-size: 17px;
+    float: left;
+    margin: 4px 0 0 0;
+}
+
+.workshopDateTime {
+    position: absolute;
+    background: #fff;
+    z-index: 9;
+    left: 10px;
+    form {
+        z-index: 2;
+    }
+}
+
+.datetime {
+    font-size: 23px;
+    font-weight: 500;
+    margin: 0 0 0 10px;
+}
+
+// .overlayinvisible {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     right: 30px;
+//     bottom: 0;
+// }
+.workshopDateTime {
+    left: 27px;
+}

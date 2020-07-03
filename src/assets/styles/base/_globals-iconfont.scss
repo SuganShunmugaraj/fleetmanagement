@@ -1,0 +1,44 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ *
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+/*
+Icons
+
+Items in the icon font that have been given friendly names for use in the project
+
+Markup: style-icons.hbs
+
+Weight: 600
+hideMarkup: true
+
+Styleguide global.icons
+*/
+@import "STILLIconFont";
+
+$icon-sizes: (
+    'xxxxs':9px,
+    'xxxxms':10px,
+    'xxxs':12px,
+    'xxs':13px,
+    'xs':14px,
+    's':16px,
+    'm':18px,
+    'l':20px,
+    'xl':22px,
+    'xxl':24px,
+    'xxxl': 28px,
+    'keyVisual': 96px
+);
+
+@each $icon-size-name, $icon-size-value in $icon-sizes {
+    .icon--#{$icon-size-name} {
+        font-size: $icon-size-value!important;
+    }
+}
+
+
+

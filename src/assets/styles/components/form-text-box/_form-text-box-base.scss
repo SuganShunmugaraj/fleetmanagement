@@ -1,0 +1,107 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ * DO NOT ALTER OR REMOVE THIS COPYRIGHT NOTICE OR THIS FILE HEADER.
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+/*
+Text Box
+
+General Text input control
+
+Markup: form-text-box.hbs
+
+:focus - focus state
+
+Styleguide controls.form-text-box
+*/
+
+/*
+Form Text box - Disabled
+
+Disabled version of Form Text input
+
+Markup: form-text-box-disabled.hbs
+
+Styleguide controls.form-text-box.disabled
+*/
+
+/*
+Form Text box - Area
+
+Form Text Areas Control
+
+Markup: form-text-area.hbs
+
+Styleguide controls.form-text-box.area
+*/
+
+$form-text-box-height: 35px;
+$form-text-box-min-width: 35px;
+$form-text-box-padding: 0 10px;
+$form-text-box-width: 200px;
+.form-text-box-wrapper {
+    position: relative;
+    .form-text-box {
+        background-color: $color-white;
+        border:           1px solid $color-still-slate-grey;
+        color:            $color-still-anthracite;
+        @extend .font-m;
+        height:           $form-text-box-height;
+        min-width:        $form-text-box-min-width;
+        padding:          $form-text-box-padding;
+        width:            $form-text-box-width;
+        text-overflow:    ellipsis;
+
+        &--multitline {
+            resize:   none;
+            padding:  8px 10px;
+            overflow: auto;
+            width:    100%;
+            height:   200px;
+        }
+
+        &:focus {
+            border: 1px solid $color-still-orange;
+
+            ~.form-text-box__formatter {
+                display: none;
+            }
+        }
+
+        &.error {
+            //border:            1px solid $color-still-crimson-red;
+            background-image:  linear-gradient(135deg, rgb(230, 58, 28) 7px, rgba(255, 255, 255, 1) 7px);
+            background-color:  transparent;
+            background-repeat: repeat-x;
+
+            &:focus {
+                border: 1px solid $color-still-crimson-red;
+            }
+        }
+        &.number {
+            text-align: right;
+        }
+        &:disabled {
+            opacity: .5;
+        }
+    }
+    .form-text-box__formatter {
+        position: absolute;
+        top: 1px;
+        left: 11px;
+        width: auto !important;
+        right: 11px;
+        bottom: 1px;
+        background: white;
+        /* border: 1px solid #ccc; */
+        text-align: right;
+        /* padding-left: 10px; */
+        /* padding-right: 10px; */
+        padding-top: 2px;
+        pointer-events: none;
+        z-index: 30;
+    }
+
+}

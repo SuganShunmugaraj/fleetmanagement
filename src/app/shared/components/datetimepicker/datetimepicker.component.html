@@ -1,0 +1,28 @@
+<span class="datetime" *ngIf="this.datetimeset" (click)="setSelectedDate(this.datetimeset)">
+
+    <i class="icon icon-clock"></i>
+  {{this.datetimeset.time  }} /  {{this.datetimeset.date | ddmmdateformat }}
+  <!-- {{this.timepicker.controls.date.value  | date : 'dd.MM.yyyy' }}  -->
+
+  </span>
+<!---->
+<i *ngIf="!this.datetimeset" (click)="displayDatePicker($event)" class="icon icon-clock"></i>
+<label *ngIf="!this.datetimeset" readonly="true" class="inputdateselect" (click)="displayDatePicker($event)">Add Est. Completion Date</label>
+
+<div *ngIf="datepickerDisplay" class="workshopDateTime">
+    <form *ngIf="timepicker" [formGroup]="timepicker">
+        <p-calendar dateFormat="dd.mm.yyyy" class="dateSelction" [minDate]="minimumDate" [inline]="true" placeholder="Add Est. Completion Date" formControlName="date">
+        </p-calendar>
+        <div class="timepickerHolder">
+            <input appIntergerValidation formControlName="hours" required type="text">
+            <span>:</span>
+            <input appIntergerValidation formControlName="minutes" required maxlength="4" type="text">
+        </div>
+        <div class="Datetimepicker--action">
+            <button type="button" (click)="emitcreate()" [disabled]="!timepicker.valid" class="text-button text-button--call-to-action">Create</button>
+            <button type="button" (click)="emitdiscard()" class="text-button mLR5">Discard Change</button>
+            <button type="button" (click)="emitdelete()" class="text-button">Delete</button>
+        </div>
+    </form>
+    <div (click)="emitdiscard()" class="overlayinvisible"></div>
+</div>

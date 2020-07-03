@@ -1,0 +1,12 @@
+<div class="configmenu">
+    <ul class="configtitle">
+        <li class="configheader">{{'WORKSHOP_CONFIGURATION_TITLE_CONFIGURATION' | translate }}</li>
+        <li><a [routerLink]="['damagecategory']" routerLinkActive="active">{{'WORKSHOP_CONFIGURATION_MENU_DAMAGECATEGORIES' | translate}}</a></li>
+        <li><a [routerLink]="['workshopconfig']" routerLinkActive="active"> {{'WORKSHOP_CONFIGURATION_MENU_WORKSHOP' | translate}}</a></li>
+    </ul>
+</div>
+
+<div class="configcontent">
+    <router-outlet></router-outlet>
+
+</div>

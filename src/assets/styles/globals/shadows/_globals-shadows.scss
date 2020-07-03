@@ -1,0 +1,73 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ * DO NOT ALTER OR REMOVE THIS COPYRIGHT NOTICE OR THIS FILE HEADER.
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+/*
+Shadows
+
+Weight: 100
+
+Styleguide global.shadows
+*/
+
+/*
+Box Shadows
+
+Markup: style-box-shadows.hbs
+
+hideMarkup: true
+
+Styleguide global.shadows.box
+*/
+
+/*
+Text Shadows
+
+Markup: style-text-shadows.hbs
+
+Styleguide global.shadows.text
+*/
+
+$shadow-color: $color-black;
+
+@mixin shadow-generator($shadow-type,$shadow-name,$shadow-offsetX,$shadow-offsetY,$shadow-blur,$shadow-size,$shadow-opacity) {
+    .shadow-#{$shadow-name} {
+        @if $shadow-type == 'text' {
+            @include text-shadow($shadow-offsetX $shadow-offsetY $shadow-blur rgba($shadow-color, $shadow-opacity));
+        } @else {
+            @include box-shadow($shadow-offsetX $shadow-offsetY $shadow-blur $shadow-size rgba($shadow-color, $shadow-opacity));
+        }
+    }
+
+    .shadow-#{$shadow-name}-value-blur::after {
+        content: '#{$shadow-blur}';
+    }
+    .shadow-#{$shadow-name}-value-offset::after {
+        content: 'X: #{$shadow-offsetX} Y: #{$shadow-offsetY}';
+    }
+    .shadow-#{$shadow-name}-value-size::after {
+        content: '#{$shadow-size}';
+    }
+    .shadow-#{$shadow-name}-value-opacity::after {
+        content: '#{$shadow-opacity}';
+    }
+}
+
+//box shadows
+
+@include shadow-generator('box', 'm', 0, 1px, 1px, 0, 0.15);
+@include shadow-generator('box', 'l', 0, 1px, 1px, 0, 0.25);
+@include shadow-generator('box', 'xl', 0, 7px, 6px, 0, 0.15);
+@include shadow-generator('box', 'xtra-r', 1px, 0, 1px, 0, 0.10);
+@include shadow-generator('box', 'xtra-l', -1px, 0, 1px, 0, 0.10);
+@include shadow-generator('box', 'scroll-btm', 0, -4px, 3px, 0, 0.15);
+@include shadow-generator('box', 'scroll-top', 0, 4px, 3px, 0, 0.15);
+@include shadow-generator('box', 'scroll-r', -4px, 0, 3px, 0, 0.15);
+@include shadow-generator('box', 'scroll-l', 4px, 0, 3px, 0, 0.15);
+
+//text shadows
+@include shadow-generator('text', 'text-xl', 0, 0, 5px, 0, 1.0);

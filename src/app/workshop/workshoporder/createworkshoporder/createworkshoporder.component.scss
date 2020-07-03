@@ -1,0 +1,243 @@
+@import "../../../../assets/styles/abstracts/variable";
+@import "../../../../assets/styles/abstracts/mixins";
+.containerspace {
+    float: left;
+    width: 100%;
+    padding: 10px 20px 5px 20px;
+    box-sizing: border-box;
+}
+
+.workorderform {
+    float: left;
+    width: 65%;
+    font-size: 14px;
+    margin-bottom: 30px;    
+    .form-group {
+        margin: 0 0 6px 0;
+        line-height: 35px;
+        display: flex;
+        &.stackbutton {
+            margin: 20px 0 0 0;
+        }
+        >label {
+            float: left;
+            width: 160px;
+            margin: 0 10px 0 0;
+            font-size: 14px;
+            color: #737373;
+        }
+        >span {
+            font-weight: bold;
+            font-size: 14px;
+            float: left;
+            color: #535353;
+            margin: 0 0 0 11px;
+        }
+        &.buttonholder {
+            margin-top: 30px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            &#identificationSign{
+                width: 280px;
+            }
+            width: 160px;
+        }
+        textarea#description {
+            border: 1px solid $Slate_Grey;
+            padding: 9px 10px;
+        }
+        textarea#workshopOrderDescription,
+        #repairDescription {
+            width: 680px;
+            min-height: 134px;
+        }
+        &.alignTop {
+            align-items: flex-start;
+        }
+    }
+}
+
+
+.formSeperator {
+    border-bottom: 1px solid $Slate_Grey;
+    margin: 35px 0 10px 0;
+    padding: 0 0 10px 0;
+    font-weight: 500;
+    font-size: 16px;
+    width: 850px;
+    // max-width: 735px;
+    height: 35px;
+    padding: 5px 0 0 0;
+}
+
+// button.btn {
+//   order: none;
+//   font-size: 14px;
+//   padding: 9px 18px;
+//   cursor: pointer;
+//   margin: 0 10px 0 0;
+//   background: #fff;
+//   border: 1px solid #ccc;
+//   &.tmeBtn {
+//     background: #ff6700;
+//     color: #fff;
+//   }
+//   &[disabled] {
+//     cursor: default;
+//     opacity: 0.7;
+//   }
+// }
+.orderTitle {
+    font-size: 16px;
+    margin: 20px 0 35px 0;
+    font-weight: 500;
+}
+
+.truckdetail {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid $Slate_Grey;
+}
+
+.truckDetailSection {
+    display: flex;
+}
+
+.RightTruckDetail {
+    padding: 13px 0 0 20px;
+    font-size: 14px;
+    ul {
+        li {
+            margin-top: 10px;
+            >label {
+                font-weight: bold;
+                margin: 0 0 0 35px;
+            }
+        }
+    }
+}
+
+.radiogroupBtn {
+    float: left;
+    position: relative;
+    width: 680px;
+    display: flex;    
+    >input {
+        opacity: 0;
+        position: absolute;
+        z-index: -2;
+        &:checked+label {
+            color: #ff6700;
+            border: 1px solid  #ff6700;
+        }        
+    }
+    >label {
+        flex: 1;
+        text-align: center;
+        // padding: 9px 0;
+        border: 1px solid $Slate_Grey;
+        cursor: pointer;        
+        color: #737373;
+    }
+}
+
+.truckname {
+    font-weight: bold;
+}
+
+form.ng-invalid.ng-touched {
+    box-shadow: none;
+}
+
+.ng-invalid.ng-touched {
+    box-shadow: 0 0 0px 1px red;
+}
+
+.icon-starstrong {
+    color: #ec634a;
+    margin: 0 2px 0 2px;
+    font-size: 5px;
+}
+
+.workorderform .form-group.deslabel {
+    line-height: 17px;
+}
+
+.serialno {
+    color: #737373;
+}
+
+/// need to remove
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.catlabel {
+    align-items: top;
+}
+
+ul.toggle-select {
+    width: 55%;
+    float: left;
+    max-height: 198px;
+    overflow: auto;
+    margin-bottom: 10px;
+    padding: 2px;
+    li {
+        height: 35px;
+        min-width: 150px;
+        margin: 4px 10px 0 0;
+        padding: 0 10px 0 10px;
+        background: #fff;
+        border: 1px solid #dadada;
+        color: #545454;
+        float: left;
+        cursor: pointer;
+        border-radius: 1px;
+        box-shadow: 0 1px 1px 0 #dadada;
+        @include regular();
+        &.active {
+            color: #ff6700;
+            border-color: #ff6700;
+            font-weight: 500;
+        }
+    }
+}
+
+.form-text-box::-ms-clear {
+    display: none;
+}
+
+.radiogroupBtnDisabled {
+    pointer-events: none;
+}
+
+.addsignature {
+    width: 680px;
+    text-align: right;
+    border: 1px solid #ccc;
+    border-top: none;
+    margin: -6px 0 0 0;
+    padding: 5px 10px;
+}
+
+.signbtn {
+    border: none;
+    background: #fff;
+    font-weight: normal;
+    outline: none;
+    color: #737373;
+}
+
+.icon-add {
+    font-weight: bolder;
+    font-size: 16px;
+    color: black;
+}

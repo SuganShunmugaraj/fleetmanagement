@@ -1,0 +1,143 @@
+@import '../../../../assets/styles/abstracts/variable';
+@import '../../../../assets/styles/abstracts/mixins';
+// scss final
+:host ::ng-deep .ui-table {
+    .ui-table-thead {
+        >tr>th {
+            color: $fontL;
+            font-size: 12px;
+            padding: 0 8px;
+            @include regular();
+            border: 1px solid #dadada;
+            border-top: none;
+            border-left: none;
+            background: #fff;
+            vertical-align: middle;
+            height: 35px;
+            text-align: left;
+            &:last-child {
+                border-right: none
+            }
+        }
+    }
+    .ui-table-tbody {
+        >tr>td {
+            color: $fontR;
+            font-size: 14px;
+            @include regular();
+            height: 50px;
+            // padding: 0 8px;
+            margin: 0 0 0 0;
+            vertical-align: middle;
+            border-bottom: 1px solid #f2f2f2;
+        }
+    }
+}
+
+.tablefiltericon {
+    font-size: 16px;
+    float: right;
+}
+
+.tablebtnHolder {
+    float: right;
+    margin: 0 12px 0 0;
+}
+
+.ellipse {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.truckstatus label {
+    // float: right;
+    margin: 0 0 0 3px;
+    font-size: 14px;
+    color: #e63a1c;
+    @include regular();
+}
+
+.icon-sync {
+    padding: 0 7px 0 0;
+    font-size: 16px;
+}
+
+.truckimg {
+    text-align: center;
+    >img {
+        width: 32px;
+    }
+}
+
+.outOfOrder {
+    color: #969696;
+    font-size: 9px;
+    border: 2px solid #969696;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: -3px -19px 0 0;
+    position: relative;
+    padding: 3px;
+    font-weight: bolder;
+}
+
+:host ::ng-deep p-sorticon {
+    pointer-events: none;
+    i {
+        font-family: "STILLIconFont";
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+        font-weight: normal;
+        font-style: normal;
+        speak: none;
+        text-decoration: inherit;
+        text-transform: none;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        &.pi-sort-down:before {
+            content: "\f12b";
+        }
+        &.pi-sort-up:before {
+            content: "\f12e";
+        }
+    }
+}
+
+.column0,
+.column1,
+.column2 {
+    width: 140px;
+}
+
+.column3 {
+    width: 225px;
+}
+
+.column4 {
+    width: 140px;
+}
+
+.column5 {
+    width: 155px;
+}
+
+:host ::ng-deep .ui-table .ui-table-thead>tr>th {
+    // position: -webkit-sticky;
+    // position: sticky;
+    // top: 0;
+    // border: none;
+    // box-shadow: 0 0 0 1px #dadada;
+}
+
+@media screen and (max-width: 64em) {
+     :host ::ng-deep .ui-table .ui-table-thead>tr>th {
+        top: 0;
+    }
+}
+
+workshop-loader.static {
+    position: fixed;
+}

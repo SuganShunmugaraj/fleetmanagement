@@ -1,0 +1,88 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ *
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+/*
+Colors
+
+Markup: style-colors.hbs
+
+hideMarkup: true
+
+Styleguide global.colors
+*/
+
+@mixin css-color-generator($color-name,$color-value) {
+    .#{$color-name} {
+        background-color: $color-value;
+    }
+
+    .#{$color-name}-value::after {
+        content: '#{$color-value}';
+    }
+}
+
+// Primary Colors
+$color-still-anthracite: #545454;
+@include css-color-generator('color-still-anthracite', $color-still-anthracite);
+$color-still-grey: #969696;
+@include css-color-generator('color-still-grey', $color-still-grey);
+$color-still-slate-grey: #dadada;
+@include css-color-generator('color-still-slate-grey', $color-still-slate-grey);
+$color-still-cloud-grey: #f2f2f2;
+@include css-color-generator('color-still-cloud-grey', $color-still-cloud-grey);
+$color-still-light-white: #fafafa;
+@include css-color-generator('color-still-light-white', $color-still-light-white);
+$color-white: #ffffff;
+@include css-color-generator('color-white', $color-white);
+$color-still-orange: #ff6700;
+@include css-color-generator('color-still-orange', $color-still-orange);
+
+// Secondary Colors
+$color-black: #000000;
+@include css-color-generator('color-black', $color-black);
+$color-still-midnight-black: #1a1a1a;
+@include css-color-generator('color-still-midnight-black', $color-still-midnight-black);
+$color-still-dark-grey: #404040;
+@include css-color-generator('color-still-dark-grey', $color-still-dark-grey);
+$color-still-ash-grey: #4d4d4d;
+@include css-color-generator('color-still-ash-grey', $color-still-ash-grey);
+$color-still-wolf-grey: #737373;
+@include css-color-generator('color-still-wolf-grey', $color-still-wolf-grey);
+$color-still-fog-grey: #bfbfbf;
+@include css-color-generator('color-still-fog-grey', $color-still-fog-grey);
+$color-still-light-grey: #ebebeb;
+@include css-color-generator('color-still-light-grey', $color-still-light-grey);
+$color-still-dark-orange: #d95800;
+@include css-color-generator('color-still-dark-orange', $color-still-dark-orange);
+$color-still-crimson-red: #e63a1c;
+@include css-color-generator('color-still-crimson-red', $color-still-crimson-red);
+$color-still-lime-green: #37cc17;
+@include css-color-generator('color-still-lime-green', $color-still-lime-green);
+$color-still-mustard-yellow: #e5bf00;
+@include css-color-generator('color-still-mustard-yellow', $color-still-mustard-yellow);
+
+// Tertiary Colors - use for charts
+$color-still-light-grass: #b8f2cd;
+@include css-color-generator('color-still-light-grass', $color-still-light-grass);
+$color-still-turquoise: #7cd3d9;
+@include css-color-generator('color-still-turquoise', $color-still-turquoise);
+$color-still-soft-blue: #4964bf;
+@include css-color-generator('color-still-soft-blue', $color-still-soft-blue);
+$color-still-violet: #5e11a6;
+@include css-color-generator('color-still-violet', $color-still-violet);
+$color-still-purple: #8c377e;
+@include css-color-generator('color-still-purple', $color-still-purple);
+$color-still-clear-green: #1b8c44;
+@include css-color-generator('color-still-clear-green', $color-still-clear-green);
+$color-still-bright-turquoise: #00eeff;
+@include css-color-generator('color-still-bright-turquoise', $color-still-bright-turquoise);
+$color-still-night-blue: #505e8c;
+@include css-color-generator('color-still-night-blue', $color-still-night-blue);
+$color-still-magenta: #f22ed2;
+@include css-color-generator('color-still-magenta', $color-still-magenta);
+

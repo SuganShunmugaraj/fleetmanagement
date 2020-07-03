@@ -1,0 +1,119 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ * DO NOT ALTER OR REMOVE THIS COPYRIGHT NOTICE OR THIS FILE HEADER.
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+
+/*
+checkbox
+
+checkbox description text
+
+angular-markup: checkbox.angular.example.html
+
+generatePseudoStates: true
+pseudoStatesAsFlex: true
+
+Styleguide controls.dropdown.checkbox
+*/
+
+.checkbox {
+    display: flex;
+    align-items: flex-start;
+    //position:    relative;
+    //user-select: none;
+    color: $color-still-ash-grey;
+    min-height: 26px;
+    cursor: pointer;
+    .cb {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+        ~.tick {
+            //content: '';
+            //position: absolute;
+            //left: 0;
+            //top: 0;
+            position: relative;
+            min-width: 26px;
+            height: 26px;
+            border: 1px solid $color-still-slate-grey;
+            background-color: $color-white;
+            border-radius: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        ~.label {
+            cursor: pointer;
+            padding-left: 5px;
+            padding-top: 3px;
+            //left: 30px;
+            //position: absolute;
+            //top: 4px;
+            //white-space: nowrap;
+            @extend .font-m;
+        }
+        &:not(.disabled) {
+            &:checked {
+                &.intermediate {
+                    ~.tick {
+                        &:before {
+                            content: "\f1c5";
+                            font-family: "STILLIconFont";
+                            font-size: 13px;
+                        }
+                    }
+                }
+                ~.tick {
+                    border-color: $color-still-orange;
+                    color: $color-still-orange;
+                    &:before {
+                        //position:    relative;
+                        content: "\f165";
+                        font-family: "STILLIconFont";
+                        font-size: 13px;
+                        //padding:     6px;
+                        //top:         1px;
+                        //right:       1px;
+                    }
+                }
+                ~.label {
+                    color: $color-still-orange;
+                }
+            }
+            &:focus {
+                ~.tick {
+                    border-color: $color-still-orange;
+                }
+            }
+        }
+        &.disabled {
+            ~.tick {
+                cursor: default;
+            }
+            ~.label {
+                color: $color-still-fog-grey;
+                cursor: default;
+            }
+        }
+        &.checked-disabled {
+            ~.tick {
+                cursor: default;
+                border-color: mix($color-still-orange, $color-white, 50%) !important;
+                color: mix($color-still-orange, $color-white, 50%) !important;
+                //opacity: .5;
+            }
+            ~.label {
+                cursor: default;
+                color: mix($color-still-orange, $color-white, 50%) !important;
+                //opacity: .5;
+            }
+        }
+    }
+}

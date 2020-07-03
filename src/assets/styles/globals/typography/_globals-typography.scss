@@ -1,0 +1,76 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ *
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+/*
+Typography
+
+Markup: style-typography.hbs
+
+hideMarkup: true
+
+Styleguide global.typography
+*/
+
+$weight-texts: (
+    300: "Light",
+    400: "Regular",
+    500: "Semi-bold",
+    600: "Bold");
+
+@mixin typography-generator($font-family,$style-name,$style-weight,$style-size) {
+    .font-#{$style-name} {
+        @if $font-family == 'din' {
+            font-family: 'DIN Condensed', 'Helvetica Neue Condensed', sans-serif;
+        } @else {
+            font-family: 'Source Sans Pro', 'Segoe UI', 'Helvetica', sans-serif;
+        }
+        font-weight: $style-weight;
+        font-size: $style-size;
+    }
+
+    .font-#{$style-name}-important {
+        @if $font-family == 'din' {
+            font-family: 'DIN Condensed', 'Helvetica Neue Condensed', sans-serif !important;
+        } @else {
+            font-family: 'Source Sans Pro', 'Segoe UI', 'Helvetica', sans-serif !important;
+        }
+        font-weight: $style-weight !important;
+        font-size: $style-size !important;
+    }
+
+    $weight-as-text: map-get($weight-texts,$style-weight);
+
+    .font-#{$style-name}-value::after {
+        content: 'Source Sans Pro - #{$weight-as-text} - #{$style-size}';
+    }
+}
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semi-bold: 500;
+$font-weight-bold: 600;
+
+@include typography-generator('sans', 'm-l', $font-weight-light, 14px);
+@include typography-generator('sans', 'l-l', $font-weight-light, 16px);
+@include typography-generator('sans', 'xs-l', $font-weight-light, 12px);
+@include typography-generator('sans', 'xs', $font-weight-regular, 12px);
+@include typography-generator('sans', 'xxs', $font-weight-regular, 11px);
+@include typography-generator('sans', 'xs-x', $font-weight-regular, 13px);
+@include typography-generator('sans', 's', $font-weight-regular, 13px);
+@include typography-generator('sans', 'm', $font-weight-regular, 14px);
+@include typography-generator('sans', 'l', $font-weight-regular, 16px);
+@include typography-generator('sans', 'xs-sb', $font-weight-semi-bold, 12px);
+@include typography-generator('sans', 's-sb', $font-weight-semi-bold, 13px);
+@include typography-generator('sans', 'm-sb', $font-weight-semi-bold, 14px);
+@include typography-generator('sans', 'xl-sb', $font-weight-semi-bold, 16px);
+@include typography-generator('sans', 'xxl-sb', $font-weight-semi-bold, 18px);
+@include typography-generator('sans', 'l-b', $font-weight-bold, 16px);
+@include typography-generator('sans', 's-b', $font-weight-bold, 13px);
+@include typography-generator('sans', 'xxs-b', $font-weight-bold, 11px);
+@include typography-generator('din', 'xxxl-bc', $font-weight-bold, 70px);
+@include typography-generator('din', 'xl-bc', $font-weight-bold, 30px);

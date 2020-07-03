@@ -1,0 +1,27 @@
+:host ::ng-deep p-sorticon {
+    pointer-events: none;
+    i {
+        font-family: "STILLIconFont";
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+        font-weight: normal;
+        font-style: normal;
+        speak: none;
+        text-decoration: inherit;
+        text-transform: none;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        &.pi-sort-down:before {
+            content: "\f12b";
+        }
+        &.pi-sort-up:before {
+            content: "\f12e";
+        }
+    }
+}
+
+workshop-loader {
+    position: fixed;
+}

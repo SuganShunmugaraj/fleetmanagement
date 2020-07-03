@@ -1,0 +1,16 @@
+<workshop-header></workshop-header>
+<div class="maincontainer">
+    <div class="sidebar">
+        <workshop-sidebar></workshop-sidebar>
+    </div>
+    <div class="maincontent">
+        <router-outlet></router-outlet>
+    </div>
+    <workshop-footer></workshop-footer>
+</div>
+<toaster></toaster>
+<workshop-confirmation *ngIf="confirmationdisplay"></workshop-confirmation>
+
+
+<p-confirmDialog class="confirmdialog" #cd icon="pi pi-exclamation-triangle">
+</p-confirmDialog>

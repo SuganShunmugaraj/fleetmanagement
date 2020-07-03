@@ -1,0 +1,21 @@
+<div *ngIf="data" class="modal">
+    <div class="modal--wrapper ">
+        <div class="modal--content ">
+
+            <div class="modal__header">
+                <h4 class="modal__header-title">{{data.header | translate}}</h4>
+                <span (click)="close()" class="modal__header--close"><i class="icon icon-delete "></i></span>
+            </div>
+            <div class="modal__body">
+                <div class="modal__body-content">
+                    <span><i class="icon icon-errorstrong"></i>{{data.message | translate}}</span>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div class="modal__footer--horizontal-right">
+                    <button type="button" class="btn" (click)="update()"><i class="icon icon-ok"></i>{{'WORKSHOP_ERROR_MODAL_BUTTON_OK' | translate}}</button>
+                </div>
+            </div>
+
+        </div>
+    </div>

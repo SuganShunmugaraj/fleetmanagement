@@ -1,0 +1,121 @@
+[
+    {
+        "groupName": "Primary Colors",
+        "colors": [
+            {
+                "colorName": "Anthracite",
+                "colorCSSClass":"color-still-anthracite"
+            },
+            {
+                "colorName": "Still Grey",
+                "colorCSSClass":"color-still-grey"
+            },
+            {
+                "colorName": "Slate Grey",
+                "colorCSSClass":"color-still-slate-grey"
+            },
+            {
+                "colorName": "Cloud Grey",
+                "colorCSSClass":"color-still-cloud-grey"
+            },
+            {
+                "colorName": "Light White",
+                "colorCSSClass":"color-still-light-white"
+            },
+            {
+                "colorName": "Pure White",
+                "colorCSSClass":"color-white"
+            },
+            {
+                "colorName": "Still Orange",
+                "colorCSSClass":"color-still-orange"
+            }
+        ]
+    },
+    {
+        "groupName": "Secondary Colors",
+        "colors": [
+            {
+                "colorName": "Pure Black",
+                "colorCSSClass":"color-black"
+            },
+            {
+                "colorName": "Midnight Black",
+                "colorCSSClass":"color-still-midnight-black"
+            },
+            {
+                "colorName": "Dark Grey",
+                "colorCSSClass":"color-still-dark-grey"
+            },
+            {
+                "colorName": "Ash Grey",
+                "colorCSSClass":"color-still-ash-grey"
+            },
+            {
+                "colorName": "Wolf Grey",
+                "colorCSSClass":"color-still-wolf-grey"
+            },
+            {
+                "colorName": "Fog Grey",
+                "colorCSSClass":"color-still-fog-grey"
+            },
+            {
+                "colorName": "Light Grey",
+                "colorCSSClass":"color-still-light-grey"
+            },
+            {
+                "colorName": "Dark Orange",
+                "colorCSSClass":"color-still-dark-orange"
+            },
+            {
+                "colorName": "Crimson Red",
+                "colorCSSClass":"color-still-crimson-red"
+            },
+            {
+                "colorName": "Lime Green",
+                "colorCSSClass":"color-still-lime-green"
+            }
+        ]
+    },
+    {
+        "groupName": "Tertiary Colors - For Charts",
+        "colors": [
+            {
+                "colorName": "Light Grass",
+                "colorCSSClass":"color-still-light-grass"
+            },
+            {
+                "colorName": "Turquoise",
+                "colorCSSClass":"color-still-turquoise"
+            },
+            {
+                "colorName": "Soft Blue",
+                "colorCSSClass":"color-still-soft-blue"
+            },
+            {
+                "colorName": "Violet",
+                "colorCSSClass":"color-still-violet"
+            },
+            {
+                "colorName": "Purple",
+                "colorCSSClass":"color-still-purple"
+            },
+            {
+                "colorName": "Clear Green",
+                "colorCSSClass":"color-still-clear-green"
+            },
+            {
+                "colorName": "Bright Turquoise",
+                "colorCSSClass":"color-still-bright-turquoise"
+            },
+            {
+                "colorName": "Night Blue",
+                "colorCSSClass":"color-still-night-blue"
+            },
+            {
+                "colorName": "Magenta",
+                "colorCSSClass":"color-still-magenta"
+            }
+        ]
+    }
+]

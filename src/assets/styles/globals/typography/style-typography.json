@@ -1,0 +1,76 @@
+[
+	{
+		"groupName": "Light Typography Styles",
+		"fonts": [
+			{
+				"fontName": "L-l",
+				"fontCSSClass":"font-l-l"
+			}
+		]
+	},
+	{
+		"groupName": "Regular Typography Styles",
+		"fonts": [
+			{
+				"fontName": "XS",
+				"fontCSSClass":"font-xs"
+			},
+			{
+				"fontName": "XS-x",
+				"fontCSSClass":"font-xs-x"
+			},
+			{
+				"fontName": "S",
+				"fontCSSClass":"font-s"
+			},
+			{
+				"fontName": "M",
+				"fontCSSClass":"font-m"
+			},
+			{
+				"fontName": "L",
+				"fontCSSClass":"font-l"
+			}
+		]
+	},
+	{
+		"groupName": "Semibold Typography Styles",
+		"fonts": [
+			{
+				"fontName": "XS-sb",
+				"fontCSSClass":"font-xs-sb"
+			},
+			{
+				"fontName": "M-sb",
+				"fontCSSClass":"font-m-sb"
+			},
+			{
+				"fontName": "XL-sb",
+				"fontCSSClass":"font-xl-sb"
+			},
+			{
+				"fontName": "XXL-sb",
+				"fontCSSClass":"font-xxl-sb"
+			}
+		]
+	},
+	{
+		"groupName": "Bold Typography Styles",
+		"fonts": [
+			{
+				"fontName": "L-b",
+				"fontCSSClass":"font-l-b",
+				"text": "L-b should be used ..."
+			}
+		]
+	},
+	{
+		"groupName": "Bold Condensed Typography Styles",
+		"fonts": [
+			{
+				"fontName": "XXXL-bc",
+				"fontCSSClass":"font-xxxl-bc"
+			}
+		]
+	}
+]

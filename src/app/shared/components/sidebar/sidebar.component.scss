@@ -1,0 +1,23 @@
+@import '../../../../assets/styles/abstracts/variable';
+
+.sidebaricon{
+  display: flex;
+  flex-direction: column;
+  li{
+    text-align: center;
+    padding: 10px 0;  
+    cursor: pointer;
+    height: 44px;
+    border-top:1px solid $Light_Grey;
+    border-bottom:1px solid $Light_Grey;
+    
+    &.active{
+      border-bottom: 1px solid $Slate_Grey;
+      border-top: 1px solid $Slate_Grey; 
+
+    }
+    &:focus{
+      outline: none
+    }
+  }
+}

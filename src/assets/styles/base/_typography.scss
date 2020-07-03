@@ -1,0 +1,89 @@
+/* source-sans-pro-regular - latin */
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/source-sans-pro-v12-latin-regular.eot');
+    /* IE9 Compat Modes */
+    src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'), url('../fonts/source-sans-pro-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/source-sans-pro-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/source-sans-pro-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/source-sans-pro-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/source-sans-pro-v12-latin-regular.svg#SourceSansPro') format('svg');
+    /* Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Light.otf') format('opentype');
+    font-style: normal;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Font: Source Sans Pro Regular*/
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Regular.otf') format('opentype');
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Font: Source Sans Pro Italic*/
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Italic.otf') format('opentype');
+    font-style: italic;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Font: Source Sans Pro Semibold*/
+
+@font-face {
+    font-family: 'Source Sans Semi Pro';
+    src: url('../fonts/SourceSansPro-Semibold.otf') format('opentype');
+    font-style: normal;
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Font: Source Sans Pro Bold*/
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-Bold.otf') format('opentype');
+    font-style: normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Font: Source Sans Pro Bold Italic*/
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    src: url('../fonts/SourceSansPro-BoldIt.otf') format('opentype');
+    font-style: italic;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}
+
+
+/* Font: DIN-Pro Condensed Bold*/
+
+@font-face {
+    font-family: 'DIN Condensed';
+    src: url('../fonts/DINPro-CondBold.woff') format('woff');
+    font-style: normal;
+    font-weight: 600;
+    text-rendering: optimizeLegibility;
+}

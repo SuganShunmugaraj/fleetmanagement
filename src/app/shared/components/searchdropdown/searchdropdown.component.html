@@ -1,0 +1,17 @@
+<li class="ics" (click)="displaylist()">
+    <i class="icon icon-add"></i></li>
+<div *ngIf="display" class="searchdropdown__container">
+    <div class="searchdropdown__search">
+        <form #searchForm="ngForm">
+            <input type="text" #inputfocus [(ngModel)]="searchdata" maxlength="20" (keyup.enter)="onsearch(searchForm)" name="searchdata">
+        </form>
+    </div>
+    <ul class="searchdropdown__list">
+        <li *ngFor="let data of list"><span (click)="selectedtechnician(data)" [title]="data.name">{{data.name}}</span> <i *ngIf="data.mongoDB" (click)="remove(data.technicianNumber)" class="icon icon-trash"></i></li>
+    </ul>
+</div>
+
+
+
+<div *ngIf="display" tabindex="1" (mousedown)="duplicatewrapper()" class="duplicate-wrapper">
+</div>

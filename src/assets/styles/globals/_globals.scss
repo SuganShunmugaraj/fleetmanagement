@@ -1,0 +1,28 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ *
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+/*
+Global
+
+This section display all of the global variables that are used in the application, such as colours, fonts, icons and shadows.
+
+Weight: -200
+
+Styleguide global
+*/
+
+@import "colors/globals-colors";
+@import "globals-variables";
+@import "globals-mixins";
+@import "globals-normalize";
+@import "globals-scaffolding";
+@import "globals-helpers";
+@import "iconfont/globals-iconfont";
+@import "typography/globals-fonts";
+@import "typography/globals-typography";
+@import "shadows/globals-shadows";

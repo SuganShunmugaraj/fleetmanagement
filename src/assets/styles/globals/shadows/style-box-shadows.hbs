@@ -1,0 +1,20 @@
+<div class="docu-color-list">
+	{{#each this}}
+	<div class="docu-color-group">
+		<div class="docu-color-group-name">{{shadowName}}</div>
+        <div class="docu-color-row">
+            <div class="docu-shadow color-white {{shadowCSSClass}}"></div>
+			<div class="docu-details">
+                <div class="docu-color-name">SASS: .{{shadowCSSClass}}</div>
+               <div><span class="{{shadowCSSClass}}-value-blur">Blur: </span>
+                <span class="{{shadowCSSClass}}-value-size">Size: </span>
+               </div>
+                <div class="{{shadowCSSClass}}-value-offset">Offset: </div>
+                <div class="{{shadowCSSClass}}-value-opacity">Opacity: </div>
+				{{#if text}}<div class="docu-color-text">{{text}}</div>{{/if~}}
+			</div>
+		</div>
+	</div>
+	{{/each}}
+	<div class="clearfix"></div>
+</div>

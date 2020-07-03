@@ -1,0 +1,184 @@
+﻿{
+    "trucks": [
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "FM-X 17",
+        "serialNumber": "511903G00145",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "EXU-SF 20",
+        "serialNumber": "F20179G00187",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 20-20 P",
+        "serialNumber": "516216G00063",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "false",
+        "truckName": "None STILL",
+        "serialNumber": "W41615G00008",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "false",
+        "truckName": "RX 70-25",
+        "serialNumber": "517362G00050",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "None STILL",
+        "serialNumber": "517301G00012",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "EXV 14 C",
+        "serialNumber": "F20321G00026",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 50-15",
+        "serialNumber": "515065G00516",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-50/600",
+        "serialNumber": "516330G00072",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-45",
+        "serialNumber": "516328G00058",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "LTX 70",
+        "serialNumber": "W40608G00120",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-50/600",
+        "serialNumber": "516330G00072",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 20-20 P",
+        "serialNumber": "516216G00063",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "EXV-14",
+        "serialNumber": "F20323G00008",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "None STILL",
+        "serialNumber": "517305G00018",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-45",
+        "serialNumber": "516328G00058",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "EXV-14i",
+        "serialNumber": "F20324G00052",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "ECU 30",
+        "serialNumber": "F298049G00020",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-25",
+        "serialNumber": "516345G00151",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "EXV-16i",
+        "serialNumber": "F20328G00017",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 20-20 P",
+        "serialNumber": "516216G01122",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 20-20 P",
+        "serialNumber": "516216G01478",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "None STILL",
+        "serialNumber": "517305G00018",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 20-20 P",
+        "serialNumber": "516216G01591",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "None STILL",
+        "serialNumber": "517301G00012",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-25",
+        "serialNumber": "516345G00151",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "FM-X 14",
+        "serialNumber": "511902G00285",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "EXV 14 C",
+        "serialNumber": "F20321G00026",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-30",
+        "serialNumber": "516353G00139",
+        "shipToPartyNo": "29804"
+      },
+      {
+        "openWorkshopOrder": "true",
+        "truckName": "RX 60-25",
+        "serialNumber": "516345G00660",
+        "shipToPartyNo": "29804"
+      }
+    ]
+  }

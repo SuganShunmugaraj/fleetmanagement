@@ -1,0 +1,119 @@
+<div class="truckdetail">
+    <div class="containerspace">
+        <div class="truckDetailSection">
+            <div class="leftTruckimg">
+                <img style="margin: 0 0 0 -5px;" src="assets/img/{{truckimage}}">
+            </div>
+            <div class="RightTruckDetail">
+                <label class="truckname">{{workshoporderForm?.controls.truckName.value}}</label>
+                <ul class="TruckDetai">
+                    <li><span class="serialno">{{'WORKSHOP_CREATEORDER_TRUCKDETAIL_SERIALNO' | translate}}:</span><label><label>{{serialNumber}}</label></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="containerspace">
+    <h3 *ngIf="editOrderView" class="orderTitle"> {{'WORKSHOP_CREATEORDER_FORM_TITLE_EDIT' | translate }} </h3>
+    <h3 *ngIf="!editOrderView" class="orderTitle"> {{'WORKSHOP_CREATEORDER_FORM_TITLE_CREATE' | translate}}</h3>
+
+    <form *ngIf="workshoporderForm" [formGroup]="workshoporderForm">
+        <div class="workorderform">
+            <div class="form-group">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_AUTHOR' | translate}} :</label>
+                <span>{{workshoporderForm.controls.author.value}}</span>
+            </div>
+            <div class="form-group">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_REPORTER' | translate}} <sup class="icon icon-starstrong"></sup>:</label>
+                <div class="form-text-box-wrapper">
+                    <input id="reporter" class="form-text-box" formControlName="reporter" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_CREATIONDATE' | translate}} :</label>
+                <span>{{workshoporderForm.controls.creationDate.value}}</span>
+            </div>
+            <div class="form-group" *ngIf="editOrderView">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_NUMBER' | translate}} :</label>
+                <span>{{workshoporderForm.controls.workshopOrderNumber.value}}</span>
+            </div>
+            <div class="form-group" *ngIf="editOrderView && !markerNew">
+ 
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_PRIORITY' | translate}} :</label>
+                <div [ngClass]="{'radiogroupBtnDisabled': markerNew}" class="radiogroupBtn">
+                    <input id="3" [value]=3 formControlName="priority" type="radio" />
+                    <label for="3">{{'WORKSHOP_CREATEORDER_FORM_LABEL_LOW' | translate}}</label>
+                    <input id="2" [value]=2 formControlName="priority" type="radio" />
+                    <label for="2">{{'WORKSHOP_CREATEORDER_FORM_LABEL_MEDIUM' | translate}}</label>
+                    <input id="1" [value]=1 formControlName="priority" type="radio" />
+                    <label for="1">{{'WORKSHOP_CREATEORDER_FORM_LABEL_HIGH' | translate}}</label>
+                </div>
+            </div>
+
+            <h5 class="formSeperator">{{'WORKSHOP_CREATEORDER_FORM_SUBTITLE' | translate}} </h5>
+
+            <div class="form-group categorycont">
+                <label class="catlabel">{{'WORKSHOP_CREATEORDER_FORM_LABEL_CATEGORY' | translate}}:</label>
+                <ul class="toggle-select">
+                    <li *ngFor="let categ of damageCategory" (click)="getDamageCategory(categ, markerNew)" [ngClass]="activedamagecategory(categ)">{{categ.name}}</li>
+                </ul>
+            </div>
+            
+            <div class="form-group" *ngIf="workshoporderForm.controls.workStatus.value === 'INPROGRESS'">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_TRUCKOPERATINGHOURS' | translate}}<sup class="icon icon-starstrong"></sup>:</label>
+                <div class="form-text-box-wrapper">
+                    <input id="operatingHours" class="form-text-box" formControlName="operatingHours" type="number" onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+                </div>
+            </div>
+            <div class="form-group" *ngIf="workshoporderForm.controls.workStatus.value === 'INPROGRESS'">                
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_KEYWORD' | translate}}:</label>
+                <div class="form-text-box-wrapper">
+                    <input id="identificationSign" class="form-text-box" formControlName="identificationSign" type="text" maxlength="60"/>
+                </div>                
+            </div>
+            
+            <div class="form-group alignTop deslabel">
+                <label class="deslabel">{{'WORKSHOP_CREATEORDER_FORM_LABEL_WORKSHOPORDERDESCRIPTION' | translate}}:</label>
+                <textarea id="workshopOrderDescription" class="text-box text-box--multitline" maxlength="2000" formControlName="workshopOrderDescription" class="text-box text-box--multitline"></textarea>
+            </div>
+
+            <div class="form-group alignTop deslabel">
+                <label class="deslabel"></label>
+                <div class="addsignature">
+                        <button class="signbtn" (click)="addSignature()">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_ADDSIGNATURE' | translate}} <i class="icon icon-add"></i></button>
+                </div>
+            </div>
+
+            <div class="form-group alignTop deslabel" *ngIf="workshoporderForm.controls.workStatus.value === 'INPROGRESS'">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_REPAIRDESCRIPTION' | translate}}<sup class="icon icon-starstrong"></sup>:</label>
+                <textarea id="repairDescription" class="text-box text-box--multitline" maxlength="2000" formControlName="repairDescription">
+        </textarea>
+            </div>
+            <div class="form-group">
+                <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_OUTOFORDER' | translate}}:</label>
+
+                <label class="checkbox">
+          <input id="name" class="cb" formControlName="outOfOrder" name="outOfOrder" type="checkbox">
+          <span class="tick"></span> 
+        </label>
+
+            </div>
+            <div class="form-group stackbutton" *ngIf="!editOrderView">
+                <button [disabled]="!workshoporderForm.valid" (click)="submitform(editOrderView)" class="text-button text-button--call-to-action">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_CREATE' | translate}}</button>
+                <button type="button" class="text-button" [routerLink]="['/trucklist/']">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_CANCEL' | translate}}</button>
+            </div>
+            <div class="form-group stackbutton" *ngIf="editOrderView">
+                <button [disabled]="!workshoporderForm.controls.reporter.valid" (click)="submitform(editOrderView)" class="text-button text-button--call-to-action">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_SAVECHANGES' | translate}}</button>
+                <button type="button" class="text-button  " [disabled]="!workshoporderForm.valid" (click)="finalize()" *ngIf="workshoporderForm.controls.workStatus.value === 'INPROGRESS'">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_FINALIZE' | translate}}</button>
+                <button type="button" class="text-button" (click)="discard()">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_DISCARD' | translate}}</button>
+                <button *ngIf="workshoporderForm.controls.workStatus.value === 'WAITING'" type="button" class="text-button" (click)="deleteform()">{{'WORKSHOP_CREATEORDER_FORM_BUTTON_REJECT' | translate}}</button>
+            </div>
+        </div>
+    </form>
+
+    <workshop-loader *ngIf="!workshoporderForm" class="light"></workshop-loader>
+
+    <workshop-loader *ngIf="loaderdisplay" class="light"></workshop-loader>
+
+</div>

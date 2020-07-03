@@ -1,0 +1,47 @@
+@import "../../../../assets/styles/abstracts/variable";
+@import "../../../../assets/styles/abstracts/mixins";
+.configmenu {
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid transparent;
+    background: #f2f2f2;
+    float: left;
+    position: fixed;
+    li {
+        font-size: 14px;
+        line-height: 35px;
+        width: 99%;
+        @include regular();
+        a {
+            padding: 0 0 0 10px;
+            line-height: 35px;
+            float: left;
+            width: 100%;
+            @include regular();
+            color: #000;
+            text-decoration: none;
+        }
+        a.active {
+            border: 1px solid #ffa366;
+            box-shadow: 5px 0px 0px 0px #ff8533;
+            background-color: #fff;
+        }
+    }
+}
+
+.configcontent {
+    float: right;
+    width: 80%;
+    height: calc(100% - 70px);
+}
+
+.configheader {
+    font-weight: bold;
+    padding: 0 0 0 10px;
+    margin: 10px 0 0 0;
+}
+
+.slotcontainer {
+    height: 100%;
+    overflow: auto;
+}

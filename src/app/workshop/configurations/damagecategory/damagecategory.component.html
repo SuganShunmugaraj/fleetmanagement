@@ -1,0 +1,126 @@
+<div class="containerspace">
+    <div class="damageCategoryholder">
+        <div class="damageCategoryform">
+            <form [formGroup]="damageCategoryForm">
+                <button class="plusbtn" (click)="showDamageCategoryBox()"><i class="icon icon-add"></i><label
+						class="label-dmg-header">{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_BUTTON_CREATENEW' | translate}}</label></button>
+                <ng-container *ngIf="showDamageCategory">
+                    <div class="form-group dmg-category-name">
+
+                        <div class="form-text-box-wrapper">
+                            <button class="arrowbtn iconbtn" (click)="showDamageCategoryDetailsBox()"><i
+								class="icon {{iconClass}}"></i></button>
+                            <input id="name" [class.errorhighlight]="errorMessage" class="form-text-box" formControlName="name" type="text" maxlength="50" (keydown)="reseterror($event)" placeholder="{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_INPUT_PLACEHOLDER_CATEGORYNAME' | translate}}"
+                            />
+                            <button class="iconbtn" (click)="discard()"><i class="icon icon-trash"></i></button>
+                            <button class="iconbtn" [disabled]="!damageCategoryForm.valid || edittab" (click)="submitform('create')"><i
+                                class="icon icon-save"></i></button>
+                            <span *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</span>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="!showDamageCategoryDetails">
+                        <div class="form-group">
+                            <label>{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_FORM_PRIORITY' | translate}}<sup class="icon icon-starstrong"></sup>:</label>
+                            <div class="radiogroupBtn">
+                                <input id="3" [value]="3" formControlName="priority" type="radio" />
+                                <label for="3">3</label>
+                                <input id="2" [value]="2" formControlName="priority" type="radio" />
+                                <label for="2">2</label>
+                                <input id="1" [value]="1" formControlName="priority" type="radio" />
+                                <label for="1">1</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group alignTop deslabel">
+                            <label class="deslabel">{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_FORM_SHORTDESCRIPTION' | translate}}:</label>
+                            <textarea id="description" class="text-box text-box--multitline" formControlName="description"></textarea>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </form>
+        </div>
+
+
+        <div class="damagecata-list">
+            <p-accordion [multiple]="true">
+                <form *ngIf="damageCategoryListForm" [formGroup]="damageCategoryListForm">
+                    <ng-container formArrayName="categories">
+                        <ng-container *ngFor="let item of damageCategoryListForm.controls.categories.controls; let $index=index" [formGroupName]="$index">
+                            <p-accordionTab [ngClass]="{'edittab':  item.value.id == edittab}" [selected]="item.value.id == edittab ? true : null" class="damageCategoryform viewtab">
+                                <p-header>
+                                    <div class="form-group dmg-category-name editmode">
+
+                                        <div [ngClass]="{'focus':  item.value.id == focusselected}" class="form-text-box-wrapper">
+                                            <button class="arrowbtn iconbtn"><i class="icon icon-disclosureright"></i></button>
+                                            <div (click)="stoppropagation($event)">
+                                                <input id="name" [class.errorhighlight]="errorMessage" class="form-text-box" formControlName="name" type="text" maxlength="50" (keydown)="namevalidate($event)" placeholder="{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_INPUT_PLACEHOLDER_CATEGORYNAME' | translate}}" />
+                                                <button class="iconbtn"  (click)="resetEditForm(item , $index)" type="button"><i class="icon icon-delete"></i></button>
+                                                <button class="iconbtn" [disabled]="!item.valid" (click)="submitform('edit' , item.value)"><i class="icon icon-save"></i></button>
+                                            </div>
+                                            <span *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group dmg-category-name viewmode">
+                                        <div class="form-text-box-wrapper">
+                                            <button class="arrowbtn iconbtn"><i class="icon icon-disclosureright"></i></button>
+
+                                            <label class="damagename">   {{item.value.name}}</label>
+                                            <div class="pull-right" (click)="stoppropagation($event)">
+                                                <button type="button" (click)="deleteform('edit' , item.value)" class="iconbtn"><i class="icon icon-trash"></i></button>
+
+                                                <button type="button" class="iconbtn" [disabled]="edittab" (click)="editform($event , item)"><i class="icon icon-edit"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </p-header>
+
+                                <div class="accordionbody">
+
+                                    <div class="form-group">
+                                        <label>{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_FORM_PRIORITY' | translate}}<sup class="icon icon-starstrong"></sup>:</label>
+                                        <div class="radiogroupBtn">
+                                            <input [id]="$index + '3'" [value]="3" formControlName="priority" type="radio" />
+                                            <label [for]="$index + '3'">3</label>
+                                            <input [id]="$index + '2'" [value]="2" formControlName="priority" type="radio" />
+                                            <label [for]="$index + '2'">2</label>
+                                            <input [id]="$index + '1'" [value]="1" formControlName="priority" type="radio" />
+                                            <label [for]="$index + '1'">1</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group alignTop deslabel">
+                                        <label class="deslabel">{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_FORM_SHORTDESCRIPTION' | translate}}:</label>
+                                        <textarea [attr.readonly]="item.value.id == edittab ? null : true" id="description" class="text-box text-box--multitline" formControlName="description"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </p-accordionTab>
+                        </ng-container>
+                    </ng-container>
+                </form>
+            </p-accordion>
+
+        </div>
+    </div>
+
+    <workshop-loader *ngIf="loaderdisplay" class="light"></workshop-loader>
+</div>
+
+<workshop-modal [headertitle]="modalHeader">
+    <div body class="modal__body-content__elements-content">
+        <span class="body_label">{{modalBody | translate}}
+        </span>
+        <div class="workorders_label">
+            <span class="body_label workorders" *ngFor="let adaptWSOno of adaptedWSONumbers; let i = index"> 
+                {{adaptWSOno}}{{i === (adaptedWSONumbers.length - 1) ? '' : ', '}}
+                </span>
+        </div>
+    </div>
+    <div footer>
+        <button *ngIf="!deleteresponse" type="button" class="btn" (click)="updateform()"><i class="icon icon-ok"></i>{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_MODAL_OKAY' | translate}}</button>
+        <button *ngIf="deleteresponse" type="button" class="btn" (click)="deleteDamageCategory()"><i class="icon icon-ok"></i>{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_MODAL_OKAY' | translate}}</button>
+        <button type="button" class="btn" (click)="cancel()"><i class="icon icon-delete"></i>{{'WORKSHOP_CONFIGURATION_DAMAGECATEGORY_MODAL_CANCEL' | translate}}</button>
+    </div>
+</workshop-modal>

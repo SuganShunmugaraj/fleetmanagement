@@ -1,0 +1,42 @@
+<p-table class="lazyloadtable" [columns]="cols" (click)="customsort($event)" [value]="trucklistdata" [customSort]="true">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+
+            <th style="width:70px"></th>
+            <th *ngFor="let col of columns; let i = index" class="column{{i}}" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th style="width: 155px">{{'WORKSHOP_TRUCKLIST_TABLE_HEADER_ACTION' | translate}}
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowIndex="rowIndex" let-truck>
+        <tr #tablerow [attr.data-row-index]="rowIndex" [class]="rowIndex">
+            <td class="truckimg">
+                <i *ngIf="truck.outOfOrder" class="icon icon-delete outOfOrder"></i>
+                <img src="{{truckpath}}{{truck.truckImg}}">
+            </td>
+            <td class="ellipse">{{truck.truckName}}</td>
+            <td>{{truck.truckType}}</td>
+            <td>{{truck.serialNumber}}</td>
+            <td class="ellipse">{{truck.location}}</td>
+            <td class="truckstatus">
+                <label *ngIf="truck.workStatus=='WAITING'" class="trucksta"><i class="icon icon-sync"></i>{{'WORKSHOP_TRUCKLIST_TRUCKSTATUS_WAITING' | translate}}</label>
+                <label *ngIf="truck.workStatus=='INPROGRESS'" class=""><i class="icon icon-sync"></i>{{'WORKSHOP_TRUCKLIST_TRUCKSTATUS_INPROGRESS' | translate}}</label>
+            </td>
+            <td>
+                <div class="tablebtnHolder">
+                    <button *ngIf="truck.assignedWorkshopOrderNo" [disabled]="truck.workStatus=='INPROGRESS'" class="text-button" [routerLink]="['/editorder/' ,truck.assignedWorkshopOrderNo]">{{'WORKSHOP_TRUCKLIST_ACTIONBUTTON_OPEN' | translate}}</button>
+                    <button id="createorderBtn" *ngIf="!truck.assignedWorkshopOrderNo" class="text-button" [routerLink]="['/createorder/',truck.truckName,truck.serialNumber, truck.shipToPartyNo, truckclientId, truck.truckImg]">
+                        {{'WORKSHOP_TRUCKLIST_ACTIONBUTTON_CREATE' | translate}}
+          </button>
+                    <!-- <button>Create Service Report</button> -->
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<workshop-loader *ngIf="loaderdisplay" class="light static"></workshop-loader>
+
+<workshop-loader *ngIf="!trucklistdata" class="light"></workshop-loader>

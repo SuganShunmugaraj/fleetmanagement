@@ -1,0 +1,91 @@
+.icon-btn {
+    font-size: 20px;
+    color: $STILL_Grey;
+    &:focus {
+        color: $Ash_Grey;
+    }
+    &.active,
+     :active {
+        color: #ff8533;
+    }
+}
+
+.icon-button {}
+
+$text-button-height: 35px;
+$text-button-width: 113px;
+.icon-button {
+    background-color: $color-white;
+    @extend .font-m-sb;
+    color: $color-still-anthracite;
+    padding: 0 5px;
+    height: $text-button-height;
+    border: none;
+    outline: none;
+    // width: $text-button-width;
+    i {
+        margin: 0 5px 0 0;
+        font-size: 20px;
+        color: $color-still-grey;
+    }
+    &:disabled {
+        opacity: .5;
+    }
+    &:active {
+        box-shadow: none;
+    }
+    &:focus {
+        color: $color-still-orange;
+        outline: none;
+    }
+    &--secondary {
+        border: 1px solid transparent;
+    }
+    &--call-to-action {
+        background-color: $color-still-orange;
+        color: $color-white;
+        &:active {
+            background-color: $color-still-dark-orange;
+            color: $color-still-cloud-grey;
+        }
+        &:focus {
+            //@TODO:  Define styles for focus state
+        }
+    }
+}
+
+.iconbtn {
+    background-color: white;
+    border: none;
+    outline: none;
+    height: 35px;
+    float: right;
+    width: 35px;
+    cursor: pointer;
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    i {
+        font-size: 20px;
+        color: #969696;
+        &:focus {
+            color: #ff6700;
+        }
+        &:active {
+            color: #4d4d4d;
+        }
+    }
+    &:focus i {
+        color: #ff6700;
+    }
+    &:active i {
+        color: #4d4d4d;
+    }
+}
+
+.stackbutton {
+    .icon-button {
+        margin-right: 20px;
+    }
+}

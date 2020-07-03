@@ -1,0 +1,22 @@
+<p>Please Note The HTML in this section is purely for the Style Guide and fonts should not be referenced directly from HTML under normal usage.</p>
+<div class="docu-color-list">
+	{{#each this}}
+	<div class="docu-color-group">
+		<div class="docu-color-group-name">{{groupName}}</div>
+
+		{{#each fonts}}
+		<div class="docu-color-row">
+			<div class="docu-details">
+                <hr>
+                <div><span class="{{fontCSSClass}}">The quick brown fox jumps over the lazy dog</span></div>
+                <hr>
+                <div class="{{fontCSSClass}}-value">Font Details:</div>
+				<div class="docu-color-name">SASS: .{{fontCSSClass}}</div>
+				{{#if text}}<div class="docu-color-text">{{text}}</div>{{/if~}}
+			</div>
+		</div>
+		{{/each}}
+	</div>
+	{{/each}}
+	<div class="clearfix"></div>
+</div>

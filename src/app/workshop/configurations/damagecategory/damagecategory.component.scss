@@ -1,0 +1,302 @@
+@import "../../../../assets/styles/abstracts/variable";
+@import "../../../../assets/styles/abstracts/mixins";
+.containerspace {
+    float: left;
+    width: 100%;
+    padding: 10px 20px 5px 35px;
+    box-sizing: border-box;
+}
+
+.damageCategoryform {
+    float: left;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 100%;
+    &.createformcontainer {
+        width: 60%;
+    }
+    .form-group {
+        margin: 0 0 6px 0;
+        line-height: 35px;
+        float: left;
+        width: 99%;
+        padding: 0;
+        align-items: center;
+        &.stackbutton {
+            margin: 20px 0 0 0;
+        }
+        >label {
+            float: left;
+            width: 160px;
+            margin: 0 10px 0 0;
+            font-size: 14px;
+            color: #737373;
+            padding: 0 0 0 20px;
+        }
+        >span {
+            font-weight: bold;
+            font-size: 14px;
+            float: left;
+            color: #535353;
+            margin: 0 0 0 11px;
+        }
+        &.buttonholder {
+            margin-top: 30px;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 335px;
+            margin: 0 0 10px 0px;
+            color: #737373;
+        }
+        textarea#description {
+            border: 1px solid $Slate_Grey;
+            padding: 9px 10px;
+            width: calc(100% - 170px);
+            min-height: 120px;
+            line-height: 20px;
+        }
+        &.alignTop {
+            align-items: flex-start;
+        }
+    }
+}
+
+.radiogroupBtn {
+    float: left;
+    position: relative;
+    width: 300px;
+    display: flex;
+    border: 1px solid $Slate_Grey;
+    >input {
+        opacity: 0;
+        position: absolute;
+        z-index: -2;
+        &:checked+label {
+            color: #ff6700;
+        }
+    }
+    >label {
+        flex: 1;
+        text-align: center;
+        // padding: 9px 0;
+        border-right: 1px solid $Slate_Grey;
+        cursor: pointer;
+        &:last-child {
+            border: none;
+        }
+    }
+}
+
+.dmg-category-name {
+    border-bottom: 1px solid $Slate_Grey;
+    padding-bottom: 5px;
+    >.icon {
+        margin: 28px 0 0 0;
+    }
+}
+
+.icon-save {
+    font-size: 20px;
+    color: #969696;
+    &:focus {
+        color: #ff6700;
+    }
+    &:active {
+        color: #4d4d4d;
+    }
+}
+
+.iconbtn {
+    background-color: white;
+    border: none;
+    outline: none;
+    height: 35px;
+    float: right;
+    width: 35px;
+    cursor: pointer;
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    i {
+        font-size: 20px;
+        color: #969696;
+        &:focus {
+            color: #ff6700;
+        }
+        &:active {
+            color: #4d4d4d;
+        }
+    }
+    &:focus i {
+        color: #ff6700;
+    }
+    &:active i {
+        color: #4d4d4d;
+    }
+}
+
+.plusbtn {
+    background-color: white;
+    border: none;
+    outline: none;
+    color: #545454;
+    margin: 0 0 30px 0;
+    &:focus {
+        color: #ff6700;
+    }
+    &:active {
+        color: #4d4d4d;
+    }
+}
+
+.plusbtn:focus label {
+    color: #ff6700;
+}
+
+.plusbtn:active label {
+    color: #4d4d4d;
+}
+
+.arrowbtn {
+    background-color: white;
+    border: none;
+    line-height: 9px;
+    outline: none;
+    float: left;
+}
+
+.savebtn {
+    background-color: white;
+    margin: 0 0 0 118px;
+    border: none;
+    outline: none;
+    height: 35px;
+    width: 35px;
+    &:focus i {
+        color: #ff6700;
+    }
+    &:active i {
+        color: #4d4d4d;
+    }
+}
+
+.iconbtn[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.label-dmg-header {
+    margin: 0 10px 0 8px;
+    font-size: 14px;
+    color: #545454;
+    cursor: pointer;
+}
+
+.errorMessage {
+    float: left;
+    width: 100%;
+    line-height: 12px;
+    padding: 4px 0 0 10px;
+    font-size: 12px;
+    margin: -7px 0 5px 35px;
+    color: red;
+}
+
+.viewtab {
+    .radiogroupBtn {
+        pointer-events: none;
+    }
+    .editmode {
+        display: none;
+    }
+}
+
+.viewtab.edittab {
+    .radiogroupBtn {
+        pointer-events: auto;
+    }
+    .editmode {
+        display: block;
+    }
+    .viewmode {
+        display: none
+    }
+}
+
+.damageCategoryholder {
+    float: left;
+    width: 55%;
+    >.damageCategoryform {
+        width: 98%;
+    }
+}
+
+.damagecata-list {
+    float: left;
+    width: 101%;
+    clear: both;
+    margin: 0 0 0 2px;
+    .damageCategoryform {
+        margin: 0;
+        .form-group input[type="text"] {
+            margin: 0 0 10px 0px;
+        }
+        .arrowbtn {
+            margin: 0;
+        }
+    }
+    .form-text-box-wrapper {
+        width: 100%;
+        float: left;
+        button {
+            margin: 0;
+            float: right;
+            &.arrowbtn {
+                float: left;
+            }
+        }
+    }
+}
+
+.damagename {
+    font-size: 14px;
+    color: #545454;
+    cursor: pointer;
+}
+
+:host ::ng-deep .ui-state-active {
+    .icon-disclosureright:before {
+        content: "\f12b";
+    }
+}
+
+.errorhighlight {
+    box-shadow: 0 0 0px 1px red;
+}
+
+.form-text-box-wrapper.focus .form-text-box {
+    border: 1px solid #ff6700;
+}
+
+.icon-starstrong {
+    color: #ec634a;
+    margin: 0 2px 0 2px;
+    font-size: 5px;
+}
+
+.workorders {
+    line-height: 20px;
+    display: inline-flex;
+}
+
+.workorders_label {
+    margin: 5px 0 0 -6px;
+}
+
+.modal__body-content__elements-content {
+    display: block;
+}

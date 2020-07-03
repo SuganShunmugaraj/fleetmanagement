@@ -1,0 +1,91 @@
+<div *ngIf="reportDetail" class="truckdetail">
+    <div class="containerspace">
+        <div class="truckDetailSection">
+            <div class="leftTruckimg">
+                <img style="margin: 0 0 0 -5px;" src="assets/images/e_rx_60_35_m.png">
+            </div>
+            <div class="RightTruckDetail">
+                <label class="truckname">{{reportDetail.truckName}}</label>
+                <ul class="TruckDetai">
+                    <li><span class="serialno">{{'WORKSHOP_CREATEORDER_TRUCKDETAIL_SERIALNO' | translate}}:</span><label><label>{{reportDetail.serialNumber}}</label></label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="reportDetail" class="containerspace">
+    <h3 class="orderTitle"> {{'WORKSHOP_SERVICEREPORT_DETAIL_HEADLINE_WORKSHOPORDER' | translate}}</h3>
+
+    <div class="workorderform">
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_AUTHOR' | translate}}:</label>
+            <span>{{reportDetail.author}}</span>
+        </div>
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_REPORTER' | translate}} :</label>
+            <span>{{reportDetail.reporter}}</span>
+        </div>
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_CREATIONDATE' | translate}}:</label>
+            <span>{{reportDetail.createdDate | date : 'dd.MM.yyyy'}}</span>
+        </div>
+        <div class="form-group" *ngIf="editOrderView">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_NUMBER' | translate}}:</label>
+            <span>{{reportDetail.serialNumber}}</span>
+        </div>
+
+
+        <h5 class="formSeperator">{{'WORKSHOP_SERVICEREPORT_DETAIL_SUBHEADLINE_DETAILS' | translate}}</h5>
+        <div class="form-group alignTop">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_CATEGORY' | translate}}:</label>
+            <div>
+                <span class="service-category" *ngFor="let i of getAssignedDmgCategoryName(reportDetail.assignedDamageCategories, reportDetail.wsoDamageCategories)">
+                    {{i}}
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_PRIORITY' | translate}}:</label>
+            <span *ngIf="reportDetail.priority == 1">{{'WORKSHOP_CREATEORDER_FORM_LABEL_HIGH' | translate}}</span>
+            <span *ngIf="reportDetail.priority == 2">{{'WORKSHOP_CREATEORDER_FORM_LABEL_MEDIUM' | translate}}</span>
+            <span *ngIf="reportDetail.priority == 3">{{'WORKSHOP_CREATEORDER_FORM_LABEL_LOW' | translate}}</span>            
+        </div>
+        <div class="form-group alignTop alignstart">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_WORKSHOPORDERDESCRIPTION' | translate}}:</label>
+            <span class="prewrap">{{reportDetail.workshopOrderDescription}}</span>
+        </div>
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_OUTOFORDER' | translate}}:</label>
+            <span>{{reportDetail.outOfOrder}}</span>
+
+        </div>
+
+
+        <br>
+        <br>
+        <h3 class="orderTitle"> {{'WORKSHOP_SERVICEREPORT_DETAIL_SUBHEADLINE' | translate}}</h3>
+
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_TRUCKOPERATINGHOURS' | translate}}:</label>
+            <span>{{reportDetail.operatingHours}}</span>
+        </div>
+
+        <div class="form-group">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_KEYWORD' | translate}}:</label>
+            <span>{{reportDetail.identificationSign}}</span>
+        </div>
+
+
+        <h5 class="formSeperator">{{'WORKSHOP_SERVICEREPORT_DETAIL_SUBHEADLINE_REPAIR' | translate}}</h5>
+
+        <div class="form-group alignstart">
+            <label>{{'WORKSHOP_CREATEORDER_FORM_LABEL_REPAIRDESCRIPTION' | translate}}:</label>
+            <span class="prewrap">{{reportDetail.repairDescription}}</span>
+        </div>
+    </div>
+
+
+
+</div>
+<workshop-loader *ngIf="!reportDetail" class="light"></workshop-loader>

@@ -1,0 +1,46 @@
+// scss final
+.ui-table {
+    .ui-table-thead {
+        >tr>th {
+            color: $fontL;
+            font-size: 12px;
+            padding: 0 8px;
+            @include regular();
+            // position: -webkit-sticky;
+            // position: sticky;
+            border: 1px solid #dadada;
+            border-top: none;
+            border-left: none;
+            background: #fff;
+            vertical-align: middle;
+            height: 35px;
+            text-align: left;
+            &:last-child {
+                border-right: none
+            }
+        }
+    }
+    .ui-table-tbody {
+        >tr>td {
+            color: $fontR;
+            font-size: 14px;
+            @include regular();
+            height: 50px;
+            // padding: 0 8px;
+            margin: 0 0 0 0;
+            vertical-align: middle;
+            border-bottom: 1px solid #f2f2f2;
+        }
+    }
+}
+
+.tablefiltericon {
+    font-size: 16px;
+    float: right;
+}
+
+.tablebtnHolder {
+    float: right;
+    margin: 0 10px 0 0;
+    margin: 0 20px 0 0;
+}

@@ -1,0 +1,57 @@
+<div class="configcontainer">
+    <div class="configleft"></div>
+    <div class="configright">
+
+        <h2 class="h2seperator">{{'WORKSHOP_CONFIGURATION_WORKSHOP_TITLE_WORKSHOPSLOT' | translate}}</h2>
+        <div *ngIf="slotlist" class="createnew">
+            <button [disabled]="editviewslot || (slotlist.length) > 7" (click)="editviewslot = true; edittab = true" class="icon-button"> <i class="icon icon-add"></i>{{'WORKSHOP_CONFIGURATION_WORKSHOP_BUTTON_ADDWORKSHOPSLOT' | translate}}</button>
+        </div>
+
+        <div class="slotcontainer">
+            <ul *ngIf="slotlist">
+                <li *ngFor="let list of slotlist; let $index=index">
+                    <ng-container *ngIf="listedit === $index; else listdisplay">
+                        <form [formGroup]="editSlotForm">
+                            <input formControlName="slotName" appAutofocus placeholder="{{'WORKSHOP_CONFIGURATION_WORKSHOP_INPUT_PLACEHOLDER' | translate}}" class="saveinput" type="text">
+                            <div class="pull-right">
+                                <button type="button" (click)="reseteditslot()" class="iconbtn"><i class="icon icon-delete"></i></button>
+                                <button (click)="updateslot(editSlotForm)" type="button" class="iconbtn"><i class="icon icon-save"></i></button>
+                            </div>
+                        </form>
+                    </ng-container>
+                    <ng-template #listdisplay>
+                        <span class="slot--name">{{list.slotName}}</span>
+                        <div class="pull-right">
+                            <button type="button" [class.disables]="list.assigned || slotlist.length == 1" [attr.title]="getToolTip(list.assigned, slotlist.length)" (click)="deleteslot($index, list)" class="iconbtn"><i class="icon icon-trash"></i></button>
+
+                            <button type="button" (click)="editlist($index); edittab = true" class="iconbtn"><i class="icon icon-edit"></i></button>
+                        </div>
+                    </ng-template>
+                    <slot [attr.title]="list.assigned ? 'There is a Workshop Order assigned to this slot' : ''">
+                        <div class="slot--container slot--free">
+                            <span class="freeslot--label"></span>
+                        </div>
+                    </slot>
+                </li>
+
+                <li *ngIf="editviewslot">
+                    <form [formGroup]="createSlotForm">
+                        <input placeholder="{{'WORKSHOP_CONFIGURATION_WORKSHOP_INPUT_PLACEHOLDER' | translate}}" appAutofocus focusvalue="true" formControlName="slotName" class="saveinput" type="text">
+
+                        <div class="pull-right">
+                            <button type="button" (click)="editviewslot = null; edittab = false; createSlotForm.reset()" class="iconbtn"><i class="icon icon-trash"></i></button>
+
+                            <button type="button" [disabled]="!createSlotForm.valid" class="iconbtn" (click)="savenewslot(); edittab = false"><i class="icon icon-save"></i></button>
+                        </div>
+                    </form>
+                    <slot>
+                        <div class="slot--container slot--free">
+                            <span class="freeslot--label"></span>
+                        </div>
+                    </slot>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<workshop-loader *ngIf="loaderdisplay" class="light"></workshop-loader>

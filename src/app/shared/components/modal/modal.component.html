@@ -1,0 +1,21 @@
+<div *ngIf="modalDisplay" class="modal">
+    <div class="modal--wrapper ">
+        <div class="modal--content ">
+
+            <div class="modal__header">
+                <h4 class="modal__header-title">{{ headertitle | translate}}</h4>
+                <span (click)="close()" class="modal__header--close"><i class="icon icon-delete "></i></span>
+            </div>
+            <div class="modal__body">
+                <div class="modal__body-content">
+                    <ng-content select="[body]"></ng-content>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div class="modal__footer--horizontal-right">
+                    <ng-content select="[footer]"></ng-content>
+                </div>
+            </div>
+
+        </div>
+    </div>

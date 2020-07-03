@@ -1,0 +1,136 @@
+.workshopDateTime {
+    border: 1px solid $color-still-slate-grey;
+    @extend .shadow-m;
+}
+
+workshop-datetimepicker {
+    // position: absolute;
+    // z-index: 3;
+    // background: #fff;
+    // left: 10px;
+    // top: 28px;
+}
+
+p-calendar {
+    background: #fff;
+    .ui-calendar {
+        border-radius: 1px;
+        background-color: $color-white;
+        padding: 0;
+        .ui-datepicker .ui-datepicker-header {
+            padding: 0;
+        }
+        td,
+        th {
+            padding: 4px 5.5px;
+            height: 35px;
+            text-align: center;
+            border-radius: 0;
+            vertical-align: middle;
+            font-size: 13px;
+            color: $Wolf_Grey;
+            @extend .font-m-sb;
+        }
+        td {
+            &.ui-datepicker-today {
+                color: $theme;
+            }
+            &.ui-datepicker-current-day a {
+                box-shadow: 0 0 0 1px $theme;
+                -moz-box-shadow: 0 0 0 1px $theme;
+                -webkit-box-shadow: 0 0 0 1px $theme;
+                -ms-box-shadow: 0 0 0 1px $theme;
+            }
+            .ui-state-disabled {
+                color: $STILL_Grey;
+            }
+        }
+    }
+    .ui-datepicker {
+        .ui-datepicker-prev {
+            border-right: 1px solid #ccc;
+        }
+        .ui-datepicker-next {
+            border-left: 1px solid #ccc;
+        }
+        a.ui-datepicker-prev,
+        a.ui-datepicker-next {
+            position: absolute;
+            top: -3px;
+            bottom: 0;
+            width: 36px;
+            height: auto;
+            @extend .font-xl-sb;
+            color: $Wolf_Grey;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        .ui-datepicker-title {
+            padding: 4px 5px;
+            height: 44px;
+            text-align: center;
+            border-radius: 0;
+            border-bottom: 1px solid $color-still-slate-grey;
+            color: $color-still-orange;
+            @extend .font-xl-sb;
+            margin: 0;
+        }
+    }
+    .pi {
+        font-family: "STILLIconFont";
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1;
+        font-weight: normal;
+        font-style: normal;
+        speak: none;
+        text-decoration: inherit;
+        text-transform: none;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        &.pi-chevron-right:before {
+            content: "\f12d";
+        }
+        &.pi-chevron-left:before {
+            content: "\f12c";
+        }
+    }
+}
+
+.timepickerHolder {
+    padding: 10px;
+    border-top: 1px solid $color-still-slate-grey;
+    input {
+        display: inline-block;
+        border: 1px solid $color-still-slate-grey;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        border-radius: 3px;
+        padding: 0 0;
+    }
+    span {
+        margin: 0 10px;
+    }
+}
+
+.Datetimepicker--action {
+    padding: 0 10px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mLR5 {
+    margin: 0 5px;
+}
+
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+    left: 0;
+    top: 0;
+    margin: 0;
+    margin-left: -0.5em;
+    padding: 15px 14px;
+}

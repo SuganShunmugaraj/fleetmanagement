@@ -1,0 +1,30 @@
+<p-table class="lazyloadtable" [columns]="cols" (click)="customsort($event)" [value]="reportlist" [customSort]="true">
+    <ng-template pTemplate="header" let-columns>
+
+        <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-report let-rowIndex="rowIndex">
+        <tr [class]="rowIndex" routerLink="reportdetail/{{report.reportNumber}}/{{report.serialNumber}}">
+            <td class="ellipse">{{report.reportNumber}}</td>
+            <td>{{report.releaseDate}}</td>
+            <td>{{report.truckName}}</td>
+            <td>{{report.serialNumber}}</td>
+            <td>{{report.identificationSign}}</td>
+            <td>
+                <p class="prewrap">{{report.workshopOrderDescription}}</p>
+            </td>
+            <td>
+                <p class="prewrap">{{report.repairDescription}}</p>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+<workshop-loader *ngIf="loaderdisplay" class="light static"></workshop-loader>
+
+<workshop-loader *ngIf="!reportlist" class="light"></workshop-loader>

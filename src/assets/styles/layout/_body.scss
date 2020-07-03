@@ -1,0 +1,90 @@
+body {
+    font-family: 'Source Sans Pro';
+}
+
+.hidesidebar {
+    .maincontent {
+        z-index: 1;
+        background: #fff;
+        width: 100% !important;
+        height: calc( 100% - 44px)!important;
+    }
+    workshop-footer {
+        display: none;
+    }
+}
+
+.prewrap{
+    white-space: pre-wrap;
+}
+
+// body.displayoverlay {
+//     overflow: hidden;
+//     .overlay {
+//         position: fixed;
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//         background: #000;
+//         z-index: 5;
+//         opacity: .8;
+//     }
+//     p-confirmDialog {
+//         z-index: 6;
+//         position: relative;
+//     }
+// }
+// body.displayoverlay {
+//     overflow: hidden;
+//     .overlay {
+//         display: block;
+//     }
+// }
+// .overlay {
+//     position: fixed;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     bottom: 0;
+//     background: #000;
+//     z-index: 5;
+//     opacity: .8;
+//     display: none;
+// }
+// body.displayoverlay p-confirmDialog.confirmdialog {
+//     z-index: 999;
+//     position: relative;
+// }
+.ui-dialog-mask {
+    background: #000;
+    //     z-index: 5;
+    opacity: .8;
+}
+
+button.ui-button-text-icon-left {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+button.ui-button-text-icon-left span.pi {
+    font-family: "STILLIconFont";
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-weight: normal;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &.pi-check:before {
+        content: "\f165";
+    }
+    &.pi-times:before {
+        content: "\f129";
+    }
+}

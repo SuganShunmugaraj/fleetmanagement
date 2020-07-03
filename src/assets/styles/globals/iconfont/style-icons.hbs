@@ -1,0 +1,46 @@
+<div class="docu-icon-list">
+    <h4>Download <strong>STILLIconFont</strong></h4>
+    <ul>
+        {{#each types}}
+         <li><a download href="./css/{{../relativeFontPath}}{{../fontFilename}}.{{this}}">{{../fontFilename}}.{{this}}</a></li>
+        {{/each}}
+    </ul>
+    <h4>Icons</h4>
+    <table>
+        <tr>
+            <th>XXXXS</th>
+            <th>XXXXMS</th>
+            <th>XXXS</th>
+            <th>XXS</th>
+            <th>XS</th>
+            <th>S</th>
+            <th>M</th>
+            <th>L</th>
+            <th>XL</th>
+            <th>XXL</th>
+            <th>CSS-Class</th>
+            <th>Code</th>
+            <th>original Asset</th>
+        </tr>
+        {{#each glyphs}}
+            <tr>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xxxxs {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xxxxms {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xxxs {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xxs {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xs {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--s {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--m {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--l {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xl {{../classPrefix}}{{this}}"></span></td>
+                <td><span class="{{../baseClass}} {{../baseClass}}--xxl {{../classPrefix}}{{this}}"></span></td>
+                <td>{{../classPrefix}}{{this}}</td>
+                <td>{{index_of ../codepoints @index}}</td>
+                <td>{{index_of ../files @index}}</td>
+            </tr>
+        {{/each}}
+    </table>
+
+    <div style="clear: both"></div>
+</div>
+

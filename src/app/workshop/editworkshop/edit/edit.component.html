@@ -1,0 +1,302 @@
+<div class="editworkshop--container">
+    <div class="waiting">
+        <div class="editworkshop--header">
+            <h4 class="headline">{{'WORKSHOP_SLOT_WAITING_TITLE' | translate}}</h4>
+            <span class="subheadline"><i class="icon icon-creditcard"></i> {{waitingList?.length}} {{'WORKSHOP_SLOT_WAITING_SUBTITLE' | translate}}</span>
+        </div>
+        <div class="editworkshop--body">
+            <workshop-loader *ngIf="waitingListLoader" class="light"></workshop-loader>
+
+            <table class="table">
+                <thead>
+                    <th style="width: 69px"> </th>
+                    <th style="width: 112px">{{'WORKSHOP_SLOT_WAITING_TABLE_NAME' | translate}}</th>
+                    <th style="width: 195px">{{'WORKSHOP_SLOT_WAITING_TABLE_ORDERNUMBER' | translate}}</th>
+                    <th>{{'WORKSHOP_SLOT_WAITING_TABLE_CREATIONDATE' | translate}}</th>
+                    <th style="padding-right: 29px;" class="text-right">{{'WORKSHOP_SLOT_WAITING_TABLE_PRIORITY' | translate}}</th>
+                    <!-- <i class="icon icon-disclosuredown"></i>
+            <i class="icon icon-tablestrong tablefiltericon"></i>  -->
+
+                </thead>
+            </table>
+            <div class="editworkshop--content">
+
+                <ul id="cdk-drop-list-0" cdkDropList #waiting="cdkDropList" cdkDropListOrientation="vertical" [cdkDropListData]="waitingList" [cdkDropListConnectedTo]="LIST_IDS" (cdkDropListDropped)="reset(selectedOrderData)" class="waitingList">
+
+                    <ng-container *ngFor="let order of waitingList; index as i;  trackBy: trackByFn">
+                        <li [ngClass]="{'new': order.new}" class="waitingdraglist #mainScreen" routerLink="/editorder/{{order.workshopOrderNumber}}/true" cdkDrag [class.active]="selectedOrder == i" (cdkDragStarted)="dragstart(i, $event)">
+                            <span class="newmarker"></span>
+                            <div class="waitingList--container">
+                                <div class="waitingList--left__skew">
+                                    <figure>
+                                        <img src="{{truckpath}}{{order.truckImg}}">
+                                        <i *ngIf="order.outOfOrder" class="icon icon-delete outOfOrder"></i>
+                                    </figure>
+                                    <div class="waitingList--left__skewcontent">
+                                        <span title="{{order.serialNumber}}" class="truckSerialNo">{{order.serialNumber}}</span>
+                                        <span title="{{order.truckName}}" class="truckName">{{order.truckName}}</span>
+                                    </div>
+                                </div>
+                                <div class="waitingList--right">
+                                    <div class="waitingList--right--top">
+                                        <span class="orderNumber"> {{order.workshopOrderNumber}}</span>
+                                        <span class="orderdate">{{order.createdDate  | date: 'dd.MM.yyyy'}}</span>
+                                        <span class="priorityval">
+                                            <ng-container *ngIf="order.priority">{{order.priority}}</ng-container>
+                                        </span>
+                                    </div>
+                                    <div class="waitingList--right--bottom">
+
+                                        <span><i (click)="$event.stopPropagation(); toggleexpandorder[i] = !toggleexpandorder[i]"
+                                                [ngClass]="toggleexpandorder[i] ? 'icon-disclosuredown': 'icon-disclosureright'"
+                                                class="icon "></i>
+                                            <label class="waiting-assigned-dmg">
+                                                {{getAssignedDmgCategoryName(order.assignedDamageCategories, order.wsoDamageCategories , i)}}
+                                            </label>
+                                        </span>
+                                        <div class="waitingList--action--icon  ">
+                                            <i (click)="selectorder(i, $event)" class="icon icon-redo"></i>
+                                            <!-- <i class="icon icon-key"></i> -->
+                                        </div>
+
+                                        <div *ngIf="order.reasonToReject"  class="waitingList--right-reason">
+                                            <div class="reasonreject">
+                                                <!-- {{order.reasonToReject | slice:0:23}} -->
+                                                <p style="float:left; width:100%" *ngIf="order.reasonToReject">
+                                                    <img style="margin: -23px 0px 0 -33px; float:left" src="assets/img/spanner_pause.png"> {{order.reasonToReject| slice:23:1000}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+            </div>
+
+
+
+
+
+
+            <div *ngIf="toggleexpandorder[i]" class="expandview">
+                <div class="descriptionsection">
+                    <span class="descriptionsection--title">Workshop Order Description</span>
+                    <p class="descriptionsection--content prewrap">
+                        <ng-container *ngIf="order.workshopOrderDescription; else emptydescriptionsection">
+                            {{order.workshopOrderDescription}}
+                        </ng-container>
+                    </p>
+                </div>
+                <div class="descriptionsection">
+                    <span class="descriptionsection--title">Repair Description</span>
+                    <p class="descriptionsection--content prewrap">
+                        <ng-container *ngIf="order.repairDescription; else emptydescriptionsection">
+                            {{order.repairDescription}}
+                        </ng-container>
+                    </p>
+                </div>
+                <div class="descriptionsection">
+                    <span class="descriptionsection--title">Technician(s)</span>
+                    <p class="descriptionsection--content">
+
+                        <ng-container *ngIf="order.assignedTechnicians.length > 0; else emptydescriptionsection">
+                            <span *ngFor="let technician of order.assignedTechnicians; let i = index">
+                                                    {{technician}}{{i === (order.assignedTechnicians.length - 1) ? '' : ', '}}
+                                                </span>
+                        </ng-container>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </li>
+        </ng-container>
+        </ul>
+    </div>
+</div>
+</div>
+
+<ng-template #emptydescriptionsection>
+    -
+</ng-template>
+
+<div class="inprogress">
+    <div class="editworkshop--header">
+        <h4 class="headline">{{'WORKSHOP_SLOT_INPROGRESS_TITLE' | translate}}</h4>
+        <span class="subheadline"><i class="icon icon-forklift "></i> {{totalSlot - (existingSlots.length)}} of
+                {{totalSlot}} {{'WORKSHOP_SLOT_INPROGRESS_SUBTITLE' | translate}}</span>
+    </div>
+    <div class="editworkshop--body">
+        <workshop-loader *ngIf="inprogressListLoader" class="light"></workshop-loader>
+        <div class="editworkshop--content">
+            <ul [class.freeSlot__highlight]="selectedOrder !== null || selectedInprogressOrder !== null" class="inprogressList ">
+                <li class="inprogressdraglist" *ngFor="let order of inprogressList; index as i;  trackBy: trackByFn">
+                    <span class="slot--name">{{order.slotName}}</span>
+                    <slot>
+
+                        <div cdkDropList *ngIf="!order.freeSlot" [cdkDropListData]="inprogressList" cdkDropListOrientation="horizontal" [cdkDropListConnectedTo]="LIST_IDS" id="cdk-drop-list-{{i + 1}}" class="slot--container">
+                            <div cdkDrag class="inprogressdragList" (cdkDragStarted)="inprogressdragstart(i, $event)">
+                                <div routerLink="/editorder/{{order.workshopOrderNumber}}" class="slot--header">
+                                    <div class="inprogressList--left__skew">
+                                        <figure><img src="{{truckpath}}{{order.truckImg}}">
+                                            <i *ngIf="order.outOfOrder" class="icon icon-delete outOfOrder"></i>
+                                        </figure>
+                                        <div>
+                                            <span title="{{order.serialNumber}}" class="inprogress--truckSerialNo">{{order.serialNumber}}</span>
+                                            <span title="{{order.truckName}}" class="inprogress--truckName">{{order.truckName}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="inprogress--center">
+                                        <span class="order--number">{{order.workshopOrderNumber}}</span>
+                                        <span class="order--date">{{order.createdDate  | date: 'dd.MM.yyyy'}}</span>
+                                    </div>
+                                    <div class="inprogress--right">
+                                        <i class="icon icon-config"></i>
+                                        <span class="pirority--num priorityval">
+                                                <ng-container *ngIf="order.priority">{{order.priority}}</ng-container>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="slot--body">
+                                    <ul [ngClass]="{'active': activeordertec == i}" (click)="addactivehighlight(order , i)" class="addon">
+                                        <ng-container *ngIf="order.assignedTechnicians?.length > 0">
+                                            <li *ngFor="let technician of order.assignedTechnicians; index as technicianindex" (click)="showassignedtechnician(i , order)" class="bordered">
+
+                                                {{technician | shortname}}
+
+                                            </li>
+                                            <div *ngIf="assignedtec == i" class="tecdropdown">
+                                                <ul class="techdroplist">
+                                                    <li *ngFor="let tec of order.assignedTechnicians; index as unAssignTechindex">
+                                                        <span>{{tec}}</span>
+                                                        <i (click)="unAssignTechnician(unAssignTechindex, order, i)" class="icon icon-delete unassigntech"></i>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </ng-container>
+                                        <li class="bordered usericon" *ngIf="!order?.assignedTechnicians || order?.assignedTechnicians.length == 0 ">
+                                            <i class="icon icon-user"></i></li>
+
+
+                                        <searchdropdown [index]="i" [class.disabled]="order.assignedTechnicians?.length > 2" [list]="technician" (onSelect)="selectTechnician($event, i)" [editmode]="editassignedtech" (onRemove)="deletetechnician($event)" (onClose)="closetechnician($event)" (onSearch)="addNewTechnician($event, i)"></searchdropdown>
+                                    </ul>
+                                    <div routerLink="/editorder/{{order.workshopOrderNumber}}/true" class="slot-middle">
+                                        <label class="cotrl inprogress-assigned-dmg">
+                                                {{getAssignedDmgCategoryName(order.assignedDamageCategories, order.wsoDamageCategories)}}
+                                            </label>
+                                    </div>
+                                    <div class="slot-bottom">
+                                        <div class="workshopDateTimeHolder">
+                                            <span class="datetime" *ngIf="order.estCompletionDate" (click)="setSelectedDate($event, order.slotName, i)">
+                                                            <i class="icon icon-clock"></i>
+                                                            {{order.estCompletionTime}} /  {{order.estconversiondate}}
+                                                      </span>
+
+                                            <i *ngIf="!order.estCompletionDate" (click)="displayDatePicker($event,order.slotName, i)" class="icon icon-clock"></i>
+                                            <label *ngIf="!order.estCompletionDate" readonly="true" class="inputdateselect" (click)="displayDatePicker($event, order.slotName, i)">{{'WORKSHOP_SLOT_INPROGRESS_INPUT_PLACEHOLDER_COMPLETIONDATE' | translate}}</label>
+
+                                    
+
+                                            <div class="datepickercontainer">
+                                                    <dl-date-time-picker *ngIf="datepickerDisplay && slotedit === order.slotName"                                                    
+                                                    maxView="day" 
+                                                    minView="minute" 
+                                                    startView="hour"   
+                                                    minuteStep="15"  
+                                                    [selectFilter]="selectFilter"
+                                                    [(ngModel)]="order.estCompletionDateTime"  
+                                                    (change)="setdatetime($event, i)">
+                                                    </dl-date-time-picker>
+                                                <div class="datepickerbtn" *ngIf="datepickerDisplay && slotedit === order.slotName">
+                                                    <div class="btntodelete">
+                                                        <button type="button" (click)="emitdiscard()" class="text-button mLR5">{{'WORKSHOP_DATEPICKER_CONFIRM_DISCARD_BUTTON' | translate}}</button>
+                                                        <button type="button" (click)="delete(i)" class="text-button">{{'WORKSHOP_DATEPICKER_CONFIRM_DELETE_BUTTON' | translate}}</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                </div>
+
+                                <i (click)="reset(this.order)"  class="icon icon-undo"></i>
+                            </div>
+
+
+                        </div>
+        </div>
+    </div>
+
+
+    <div *ngIf="order.freeSlot" class="slot--container slot--free" (click)="updateSlot(i)" cdkDropList id="cdk-drop-list-{{i + 1}}" cdkDropListOrientation="horizontal" [cdkDropListConnectedTo]="LIST_IDS" (cdkDropListDropped)="drop($event, i)">
+        <span class="freeslot--label"> {{'WORKSHOP_SLOT_INPROGRESS_SLOT_LABEL_FREESLOT' | translate}}</span>
+                                <i class="icon icon-down downunderline"></i>
+                                <span class="assignslot--label"> <i class="icon icon-down"></i> {{'WORKSHOP_SLOT_INPROGRESS_SLOT_LABEL_ASSIGNSLOT' | translate}} </span>
+                        
+
+        <div *ngIf="duplicateslot" class="duplicateslot slot--container">
+            <div class="slot--header">
+                <div class="inprogressList--left__skew">
+                    <figure><img src="{{truckpath}}{{selectedOrderData.truckImg}}"></figure>
+                    <div>
+                        <span class="inprogress--truckSerialNo">{{selectedOrderData.serialNumber}}</span>
+                        <span class="inprogress--truckName">{{selectedOrderData.truckName}}</span>
+                    </div>
+                </div>
+                <div class="inprogress--center">
+                    <span class="order--number">{{selectedOrderData.workshopOrderNumber}}</span>
+                    <span class="order--date">{{selectedOrderData.createdDate   | date: 'dd.MM.yyyy' }}</span>
+                </div>
+                <div class="inprogress--right">
+                    <i class="icon icon-config"></i>
+                    <span class="pirority--num priorityval">
+                                                <ng-container *ngIf="selectedOrderData.priority">
+                                                    {{selectedOrderData.priority}}</ng-container>
+                                            </span>
+                </div>
+            </div>
+
+
+            <div class="slot--body">
+                <div class="slot-middle">
+                    <label class="cotrl"></label>
+                    <ul [ngClass]="{'active': activeordertec == i}" class="addon">
+                        <ng-container *ngIf="selectedOrderData.assignedTechnicians?.length > 0">
+                            <li *ngFor="let technician of selectedOrderData.assignedTechnicians; index as technicianindex" class="bordered">{{technician | shortname}}</li>
+                        </ng-container>
+                        <li class="bordered usericon" *ngIf="!selectedOrderData?.assignedTechnicians || selectedOrderData?.assignedTechnicians.length == 0 ">
+                            <i class="icon icon-user"></i></li>
+                        <searchdropdown [index]="i" [class.disabled]="selectedOrderData.assignedTechnicians?.length > 2" [list]="technician" (onSelect)="selectTechnician($event, i)" (onRemove)="deletetechnician($event)" (onClose)="closetechnician($event)" (onSearch)="addNewTechnician($event, i)"></searchdropdown>
+                    </ul>
+                </div>
+                <div class="slot-bottom">
+                    <div class="workshopDateTimeHolder">
+                        <!-- <workshop-datetimepicker (create)="setdatetime($event, i)"  (delete)="delete($event , i)"  [date]="selectedOrderData.estCompletionDate"  [time]="selectedOrderData.estCompletionTime">
+                            </workshop-datetimepicker> -->
+            </div>
+            <i  class="icon icon-undo"></i>
+        </div>
+    </div>
+</div>
+</div>
+</slot>
+</li>
+
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+<workshop-modal headertitle="{{'WORKSHOP_SLOT_INPROGRESS_MODAL_HEADER_MOVEORDER' | translate}}">
+    <div body class="modal__body-content__elements-content">
+        <span class="body_label">{{'WORKSHOP_SLOT_INPROGRESS_MODAL_LABEL_REASON' | translate}}: </span>
+        <div class="modal__body-content__elements-content__input">
+            <input type="text" [(ngModel)]="reasonToReject" maxlength="40" class="text-box">
+        </div>
+    </div>
+    <div footer>
+
+        <button type="button" class="btn" (click)="update()"><i class="icon icon-ok"></i>{{'WORKSHOP_SLOT_INPROGRESS_MODAL_BUTTON_OK' | translate}}</button>
+        <button type="button" class="btn" (click)="cancel()"><i class="icon icon-delete"></i>{{'WORKSHOP_SLOT_INPROGRESS_MODAL_BUTTON_CANCEL' | translate}}</button>
+    </div>
+</workshop-modal>
+
+<div *ngIf="datepickerDisplay" tabindex="1" (mousedown)="duplicatewrapper()" class="duplicate-wrapper">
+</div>
